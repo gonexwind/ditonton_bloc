@@ -1,10 +1,12 @@
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/state_enum.dart';
+import 'package:ditonton/presentation/bloc/search_bloc.dart';
 import 'package:ditonton/presentation/provider/movie_search_notifier.dart';
 import 'package:ditonton/presentation/provider/tv_series_search_notifier.dart';
 import 'package:ditonton/presentation/widgets/movie_card_list.dart';
 import 'package:ditonton/presentation/widgets/tv_series_card_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 class SearchCategory {
@@ -37,21 +39,11 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   late SearchCategory _selectedCategory;
-  late final TextEditingController _searchController;
 
   @override
   void initState() {
     super.initState();
-
     _selectedCategory = _categories.first;
-    _searchController = TextEditingController();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-
-    _searchController.dispose();
   }
 
   @override
@@ -85,16 +77,8 @@ class _SearchPageState extends State<SearchPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
-              controller: _searchController,
-              onSubmitted: (query) async {
-                if (_selectedCategory.category == CategoryMenu.Movie) {
-                  await Provider.of<MovieSearchNotifier>(context, listen: false)
-                      .fetchMovieSearch(query);
-                } else {
-                  await Provider.of<TVSeriesSearchNotifier>(context,
-                          listen: false)
-                      .fetchTVSeriesSearch(query);
-                }
+              onChanged: (query) {
+                context.read<SearchBloc>().add(OnQueryChanged(query));
               },
               decoration: InputDecoration(
                 hintText: 'Search title',
@@ -109,28 +93,26 @@ class _SearchPageState extends State<SearchPage> {
               style: kHeading6,
             ),
             if (_selectedCategory.category == CategoryMenu.Movie) ...[
-              Consumer<MovieSearchNotifier>(
-                builder: (context, data, child) {
-                  if (data.state == RequestState.Loading) {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  } else if (data.state == RequestState.Loaded) {
-                    final result = data.searchResult;
+              BlocBuilder<SearchBloc, SearchState>(
+                builder: (context, state) {
+                  if (state is SearchLoading) {
+                    return Center(child: CircularProgressIndicator());
+                  } else if (state is SearchHasData) {
+                    final result = state.result;
                     return Expanded(
                       child: ListView.builder(
                         padding: const EdgeInsets.all(8),
                         itemBuilder: (context, index) {
-                          final movie = data.searchResult[index];
+                          final movie = result[index];
                           return MovieCard(movie);
                         },
                         itemCount: result.length,
                       ),
                     );
+                  } else if (state is SearchError) {
+                    return Expanded(child: Center(child: Text(state.message)));
                   } else {
-                    return Expanded(
-                      child: Container(),
-                    );
+                    return Expanded(child: Container());
                   }
                 },
               ),

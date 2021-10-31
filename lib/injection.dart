@@ -18,6 +18,7 @@ import 'package:ditonton/domain/usecases/tv/get_airing_today_tv_series.dart';
 import 'package:ditonton/domain/usecases/tv/get_popular_tv_series.dart';
 import 'package:ditonton/domain/usecases/tv/get_top_rated_tv_series.dart';
 import 'package:ditonton/domain/usecases/tv/get_watch_list_status_tv_series.dart';
+import 'package:ditonton/presentation/bloc/search_bloc.dart';
 import 'package:ditonton/presentation/provider/airing_tv_series_notifier.dart';
 import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
 import 'package:ditonton/presentation/provider/movie_list_notifier.dart';
@@ -122,6 +123,11 @@ void init() {
   );
   locator.registerFactory(
     () => AiringTVSeriesNotifier(
+      locator(),
+    ),
+  );
+  locator.registerFactory(
+    () => SearchBloc(
       locator(),
     ),
   );
