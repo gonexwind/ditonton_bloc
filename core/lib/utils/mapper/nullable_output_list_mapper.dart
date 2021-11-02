@@ -1,4 +1,4 @@
-import 'package:ditonton/common/mapper/mapper.dart';
+import 'mapper.dart';
 
 abstract class NullableOutputListMapper<I, O>
     extends Mapper<List<I>, List<O>?> {}
