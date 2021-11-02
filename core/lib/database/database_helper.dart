@@ -1,12 +1,14 @@
 import 'dart:async';
 
-import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/data/models/movie_table.dart';
 import 'package:ditonton/data/models/tv/tv_local_database/tv_local_database_model.dart';
 import 'package:sqflite/sqflite.dart';
 
+import '../utils/constants.dart';
+
 class DatabaseHelper {
   static DatabaseHelper? _databaseHelper;
+
   DatabaseHelper._instance() {
     _databaseHelper = this;
   }

@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
-import 'package:ditonton/common/failure.dart';
+import 'package:ditonton/utils/failure.dart';
 
 abstract class MovieRepository {
   ///* API DataSource

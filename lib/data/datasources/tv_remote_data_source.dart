@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:ditonton/data/models/tv/tv_episode/tv_episode_model.dart';
 import 'package:http/http.dart' as http;
 
-import 'package:ditonton/common/constants.dart';
-import 'package:ditonton/common/exception.dart';
+import 'package:ditonton/utils/constants.dart';
+import 'package:ditonton/utils/exception.dart';
 import 'package:ditonton/data/models/tv/tv_detail/tv_detail_model.dart';
 import 'package:ditonton/data/models/tv/tv_model.dart';
 

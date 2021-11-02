@@ -1,5 +1,5 @@
-import 'package:ditonton/common/constants.dart';
-import 'package:ditonton/common/exception.dart';
+import 'package:ditonton/utils/constants.dart';
+import 'package:ditonton/utils/exception.dart';
 import 'package:ditonton/data/datasources/tv_local_data_source.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';

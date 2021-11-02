@@ -1,4 +1,4 @@
-import 'package:ditonton/common/constants.dart';
+import 'package:ditonton/utils/constants.dart';
 import 'package:ditonton/injection.dart' as di;
 import 'package:ditonton/presentation/bloc/search_bloc.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';

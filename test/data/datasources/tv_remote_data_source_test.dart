@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/mockito.dart';
 
-import 'package:ditonton/common/exception.dart';
+import 'package:ditonton/utils/exception.dart';
 import 'package:ditonton/data/datasources/tv_remote_data_source.dart';
 import 'package:ditonton/data/models/tv/tv_detail/tv_detail_model.dart';
 import 'package:ditonton/data/models/tv/tv_episode/tv_episode_model.dart';

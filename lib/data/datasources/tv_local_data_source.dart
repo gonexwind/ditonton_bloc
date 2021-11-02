@@ -1,6 +1,6 @@
-import 'package:ditonton/common/constants.dart';
-import 'package:ditonton/common/exception.dart';
-import 'package:ditonton/data/datasources/db/database_helper.dart';
+import 'package:ditonton/utils/constants.dart';
+import 'package:ditonton/utils/exception.dart';
+import '../../../core/lib/database/database_helper.dart';
 import 'package:ditonton/data/models/tv/tv_local_database/tv_local_database_model.dart';
 
 abstract class TVLocalDataSource {
