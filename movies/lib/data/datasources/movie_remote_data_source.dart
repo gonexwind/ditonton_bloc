@@ -1,11 +1,8 @@
 import 'dart:convert';
 
-import 'package:ditonton/utils/constants.dart';
-import 'package:ditonton/data/models/movie_detail_model.dart';
-import 'package:ditonton/data/models/movie_model.dart';
-import 'package:ditonton/data/models/movie_response.dart';
-import 'package:ditonton/utils/exception.dart';
+import 'package:core/core.dart';
 import 'package:http/http.dart' as http;
+import 'package:movies/movies.dart';
 
 abstract class MovieRemoteDataSource {
   Future<List<MovieModel>> getNowPlayingMovies();

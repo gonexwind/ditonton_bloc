@@ -1,13 +1,9 @@
-import 'package:ditonton/utils/constants.dart';
-import 'package:ditonton/utils/state_enum.dart';
-import 'package:ditonton/presentation/bloc/search_bloc.dart';
-import 'package:ditonton/presentation/provider/movie_search_notifier.dart';
-import 'package:ditonton/presentation/provider/tv_series_search_notifier.dart';
-import 'package:ditonton/presentation/widgets/movie_card_list.dart';
-import 'package:ditonton/presentation/widgets/tv_series_card_list.dart';
+import 'package:core/core.dart';
+import 'package:movies/movies.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+import 'package:tv_series/tv_series.dart';
 
 class SearchCategory {
   final String title;

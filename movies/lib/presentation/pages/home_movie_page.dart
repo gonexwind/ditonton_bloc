@@ -1,20 +1,7 @@
+import 'package:core/core.dart';
+import 'package:movies/movies.dart';
+import 'package:tv_series/tv_series.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ditonton/utils/constants.dart';
-import 'package:ditonton/domain/entities/movie.dart';
-import 'package:ditonton/domain/entities/tv/tv.dart';
-import 'package:ditonton/presentation/pages/about_page.dart';
-import 'package:ditonton/presentation/pages/airing_tv_series_page.dart';
-import 'package:ditonton/presentation/pages/movie_detail_page.dart';
-import 'package:ditonton/presentation/pages/popular_movies_page.dart';
-import 'package:ditonton/presentation/pages/popular_tv_series_page.dart';
-import 'package:ditonton/presentation/pages/search_page.dart';
-import 'package:ditonton/presentation/pages/top_rated_movies_page.dart';
-import 'package:ditonton/presentation/pages/top_rated_tv_series_page.dart';
-import 'package:ditonton/presentation/pages/tv_series_detail_page.dart';
-import 'package:ditonton/presentation/pages/watchlist_movies_page.dart';
-import 'package:ditonton/presentation/provider/movie_list_notifier.dart';
-import 'package:ditonton/utils/state_enum.dart';
-import 'package:ditonton/presentation/provider/tv_series_list_notifier.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -47,7 +34,7 @@ class _HomeMoviePageState extends State<HomeMoviePage>
       drawer: Drawer(
         child: Column(
           children: [
-            UserAccountsDrawerHeader(
+            const UserAccountsDrawerHeader(
               currentAccountPicture: CircleAvatar(
                 backgroundImage: AssetImage('assets/circle-g.png'),
               ),
@@ -103,7 +90,7 @@ class _HomeMoviePageState extends State<HomeMoviePage>
                 ),
                 labelColor: kRichBlack,
                 unselectedLabelColor: Colors.white,
-                tabs: [
+                tabs:const [
                   Tab(
                     child: Text('Movies'),
                   ),
@@ -118,7 +105,7 @@ class _HomeMoviePageState extends State<HomeMoviePage>
                 padding: const EdgeInsets.all(8.0),
                 child: TabBarView(
                   controller: _controller,
-                  children: [
+                  children: const [
                     MovieTabMenu(),
                     TVSeriesTabMenu(),
                   ],

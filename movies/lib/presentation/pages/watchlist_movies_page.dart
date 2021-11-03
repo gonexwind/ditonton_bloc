@@ -1,9 +1,6 @@
-import 'package:ditonton/utils/constants.dart';
-import 'package:ditonton/utils/state_enum.dart';
-import 'package:ditonton/presentation/provider/watchlist_movie_notifier.dart';
-import 'package:ditonton/presentation/provider/watchlist_tv_series_notifier.dart';
-import 'package:ditonton/presentation/widgets/movie_card_list.dart';
-import 'package:ditonton/presentation/widgets/tv_series_card_list.dart';
+import 'package:core/core.dart';
+import 'package:movies/movies.dart';
+import 'package:tv_series/tv_series.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

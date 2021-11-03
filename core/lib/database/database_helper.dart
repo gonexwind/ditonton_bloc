@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:ditonton/data/models/movie_table.dart';
-import 'package:ditonton/data/models/tv/tv_local_database/tv_local_database_model.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:movies/data/models/movie_table.dart';
+import 'package:tv_series/data/models/tv_local_database_model.dart';
 
 import '../utils/constants.dart';
 
