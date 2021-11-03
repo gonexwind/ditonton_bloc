@@ -34,8 +34,8 @@ export 'domain/usecases/remove_watchlist.dart';
 export 'domain/usecases/save_watchlist.dart';
 export 'domain/usecases/search_movies.dart';
 
-// bloc
-export 'presentation/bloc/search_bloc.dart';
+// cubit
+export 'presentation/cubit/search_cubit.dart';
 
 // pages
 export 'presentation/pages/about_page.dart';

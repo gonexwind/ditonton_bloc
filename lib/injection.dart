@@ -86,7 +86,7 @@ void init() {
     ),
   );
   locator.registerFactory(
-    () => SearchBloc(
+    () => SearchCubit(
       locator(),
     ),
   );

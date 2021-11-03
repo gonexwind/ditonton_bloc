@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
           create: (_) => di.locator<TopRatedTVSeriesNotifier>(),
         ),
         BlocProvider(
-          create: (_) => di.locator<SearchBloc>(),
+          create: (_) => di.locator<SearchCubit>(),
         ),
       ],
       child: MaterialApp(

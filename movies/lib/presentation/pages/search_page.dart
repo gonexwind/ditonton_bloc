@@ -29,6 +29,8 @@ final _categories = <SearchCategory>[
 class SearchPage extends StatefulWidget {
   static const ROUTE_NAME = '/search';
 
+  const SearchPage({Key? key}) : super(key: key);
+
   @override
   State<SearchPage> createState() => _SearchPageState();
 }
@@ -74,7 +76,7 @@ class _SearchPageState extends State<SearchPage> {
           children: [
             TextField(
               onChanged: (query) {
-                context.read<SearchBloc>().add(OnQueryChanged(query));
+                context.read<SearchCubit>().searchMovieData(query);
               },
               decoration: InputDecoration(
                 hintText: 'Search title',
@@ -89,7 +91,7 @@ class _SearchPageState extends State<SearchPage> {
               style: kHeading6,
             ),
             if (_selectedCategory.category == CategoryMenu.Movie) ...[
-              BlocBuilder<SearchBloc, SearchState>(
+              BlocBuilder<SearchCubit, SearchState>(
                 builder: (context, state) {
                   if (state is SearchLoading) {
                     return Center(child: CircularProgressIndicator());
