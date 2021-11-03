@@ -25,16 +25,6 @@ void init() {
     ),
   );
   locator.registerFactory(
-    () => PopularMoviesNotifier(
-      locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => TopRatedMoviesNotifier(
-      getTopRatedMovies: locator(),
-    ),
-  );
-  locator.registerFactory(
     () => WatchlistMovieNotifier(
       getWatchlistMovies: locator(),
     ),

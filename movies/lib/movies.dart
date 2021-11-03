@@ -50,8 +50,6 @@ export 'presentation/pages/top_rated_movies_page.dart';
 export 'presentation/pages/watchlist_movies_page.dart';
 
 // provider
-export 'presentation/provider/popular_movies_notifier.dart';
-export 'presentation/provider/top_rated_movies_notifier.dart';
 export 'presentation/provider/watchlist_movie_notifier.dart';
 
 // widgets

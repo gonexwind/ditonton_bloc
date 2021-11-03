@@ -24,12 +24,6 @@ class MyApp extends StatelessWidget {
           create: (_) => di.locator<MovieDetailCubit>(),
         ),
         ChangeNotifierProvider(
-          create: (_) => di.locator<TopRatedMoviesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<PopularMoviesNotifier>(),
-        ),
-        ChangeNotifierProvider(
           create: (_) => di.locator<WatchlistMovieNotifier>(),
         ),
         ChangeNotifierProvider(
