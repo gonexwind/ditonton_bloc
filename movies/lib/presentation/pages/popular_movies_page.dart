@@ -14,7 +14,7 @@ class _PopularMoviesPageState extends State<PopularMoviesPage> {
   void initState() {
     super.initState();
     Future.microtask(() =>
-        BlocProvider.of<MovieListCubit>(context, listen: false)
+        BlocProvider.of<MoviesCubit>(context, listen: false)
             .fetchPopularMovies());
   }
 
@@ -26,7 +26,7 @@ class _PopularMoviesPageState extends State<PopularMoviesPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<MovieListCubit, MovieListState>(
+        child: BlocBuilder<MoviesCubit, MoviesState>(
           builder: (context, state) {
             if (state is MoviesLoading) {
               return const Center(

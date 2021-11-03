@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         BlocProvider(
-          create: (_) => di.locator<MovieListCubit>(),
+          create: (_) => di.locator<MoviesCubit>(),
         ),
         BlocProvider(
           create: (_) => di.locator<MovieDetailCubit>(),

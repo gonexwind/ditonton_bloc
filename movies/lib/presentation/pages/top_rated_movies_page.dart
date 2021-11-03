@@ -13,7 +13,7 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<MovieListCubit>(context, listen: false)
+    BlocProvider.of<MoviesCubit>(context, listen: false)
         .fetchTopRatedMovies();
   }
 
@@ -25,7 +25,7 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<MovieListCubit, MovieListState>(
+        child: BlocBuilder<MoviesCubit, MoviesState>(
           builder: (context, state) {
             if (state is MoviesLoading) {
               return const Center(

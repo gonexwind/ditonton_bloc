@@ -2,14 +2,14 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:movies/movies.dart';
 
-part 'movie_list_state.dart';
+part 'movies_state.dart';
 
-class MovieListCubit extends Cubit<MovieListState> {
+class MoviesCubit extends Cubit<MoviesState> {
   final GetNowPlayingMovies getNowPlayingMovies;
   final GetPopularMovies getPopularMovies;
   final GetTopRatedMovies getTopRatedMovies;
 
-  MovieListCubit({
+  MoviesCubit({
     required this.getNowPlayingMovies,
     required this.getPopularMovies,
     required this.getTopRatedMovies,

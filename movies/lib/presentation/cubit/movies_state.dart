@@ -1,17 +1,17 @@
-part of 'movie_list_cubit.dart';
+part of 'movies_cubit.dart';
 
-abstract class MovieListState extends Equatable {
-  const MovieListState();
+abstract class MoviesState extends Equatable {
+  const MoviesState();
 
   @override
   List<Object> get props => [];
 }
 
-class MoviesInitial extends MovieListState {}
+class MoviesInitial extends MoviesState {}
 
-class MoviesLoading extends MovieListState {}
+class MoviesLoading extends MoviesState {}
 
-class MoviesError extends MovieListState {
+class MoviesError extends MoviesState {
   final String message;
 
   const MoviesError(this.message);
@@ -20,7 +20,7 @@ class MoviesError extends MovieListState {
   List<Object> get props => [message];
 }
 
-class MoviesLoaded extends MovieListState {
+class MoviesLoaded extends MoviesState {
   final List<Movie> nowPlaying;
   final List<Movie> popular;
   final List<Movie> topRated;
@@ -31,7 +31,7 @@ class MoviesLoaded extends MovieListState {
   List<Object> get props => [nowPlaying, popular, topRated];
 }
 
-class MoviesPopularLoaded extends MovieListState {
+class MoviesPopularLoaded extends MoviesState {
   final List<Movie> popular;
 
   const MoviesPopularLoaded(this.popular);
@@ -40,7 +40,7 @@ class MoviesPopularLoaded extends MovieListState {
   List<Object> get props => [popular];
 }
 
-class MoviesTopRatedLoaded extends MovieListState {
+class MoviesTopRatedLoaded extends MoviesState {
   final List<Movie> topRated;
 
   const MoviesTopRatedLoaded(this.topRated);

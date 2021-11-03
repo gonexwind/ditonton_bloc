@@ -9,7 +9,7 @@ final locator = GetIt.instance;
 void init() {
   // provider
   locator.registerFactory(
-    () => MovieListCubit(
+    () => MoviesCubit(
       getNowPlayingMovies: locator(),
       getPopularMovies: locator(),
       getTopRatedMovies: locator(),

@@ -15,7 +15,7 @@ void main() {
   late MockGetNowPlayingMovies mockGetNowPlayingMovies;
   late MockGetPopularMovies mockGetPopular;
   late MockGetTopRatedMovies mockGetTopRated;
-  late MovieListCubit movielistCubit;
+  late MoviesCubit movielistCubit;
   final tMv = <Movie>[];
 
   setUp(
@@ -24,7 +24,7 @@ void main() {
       mockGetPopular = MockGetPopularMovies();
       mockGetTopRated = MockGetTopRatedMovies();
 
-      movielistCubit = MovieListCubit(
+      movielistCubit = MoviesCubit(
         getNowPlayingMovies: mockGetNowPlayingMovies,
         getPopularMovies: mockGetPopular,
         getTopRatedMovies: mockGetTopRated,
@@ -33,7 +33,7 @@ void main() {
   );
 
   group('movie list cubit test', () {
-    blocTest<MovieListCubit, MovieListState>(
+    blocTest<MoviesCubit, MoviesState>(
         'should return Loading -> Loaded state when success load',
         build: () {
           when(() => mockGetNowPlayingMovies.execute())
@@ -49,7 +49,7 @@ void main() {
           return [isA<MoviesLoading>(), isA<MoviesLoaded>()];
         });
 
-    blocTest<MovieListCubit, MovieListState>(
+    blocTest<MoviesCubit, MoviesState>(
         'should return Loading -> Error state when failed load',
         build: () {
           when(() => mockGetNowPlayingMovies.execute())
@@ -63,7 +63,7 @@ void main() {
           return [isA<MoviesLoading>(), isA<MoviesError>()];
         });
 
-    blocTest<MovieListCubit, MovieListState>(
+    blocTest<MoviesCubit, MoviesState>(
         'should return Loading -> Error state when failed OnAir request',
         build: () {
           when(() => mockGetNowPlayingMovies.execute())
@@ -79,7 +79,7 @@ void main() {
           return [isA<MoviesLoading>(), isA<MoviesError>()];
         });
 
-    blocTest<MovieListCubit, MovieListState>(
+    blocTest<MoviesCubit, MoviesState>(
         'should return Loading -> Error state  when failed Popular request',
         build: () {
           when(() => mockGetNowPlayingMovies.execute())
@@ -95,7 +95,7 @@ void main() {
           return [isA<MoviesLoading>(), isA<MoviesError>()];
         });
 
-    blocTest<MovieListCubit, MovieListState>(
+    blocTest<MoviesCubit, MoviesState>(
         'should return Loading -> Error state  when failed Top Rated request',
         build: () {
           when(() => mockGetNowPlayingMovies.execute())
@@ -113,7 +113,7 @@ void main() {
   });
 
   group('popular only cubit test', () {
-    blocTest<MovieListCubit, MovieListState>(
+    blocTest<MoviesCubit, MoviesState>(
         'should return Loading -> PopularLoaded state when success load popular',
         build: () {
           when(() => mockGetPopular.execute())
@@ -125,7 +125,7 @@ void main() {
           return [isA<MoviesLoading>(), isA<MoviesPopularLoaded>()];
         });
 
-    blocTest<MovieListCubit, MovieListState>(
+    blocTest<MoviesCubit, MoviesState>(
         'should return Loading -> Error state when failed load popular',
         build: () {
           when(() => mockGetPopular.execute())
@@ -139,7 +139,7 @@ void main() {
   });
 
   group('top rated only cubit test', () {
-    blocTest<MovieListCubit, MovieListState>(
+    blocTest<MoviesCubit, MoviesState>(
         'should return Loading -> TopRatedLoaded state when success load top rated',
         build: () {
           when(() => mockGetTopRated.execute())
@@ -151,7 +151,7 @@ void main() {
           return [isA<MoviesLoading>(), isA<MoviesTopRatedLoaded>()];
         });
 
-    blocTest<MovieListCubit, MovieListState>(
+    blocTest<MoviesCubit, MoviesState>(
         'should return Loading -> Error state when failed load top rated',
         build: () {
           when(() => mockGetTopRated.execute())

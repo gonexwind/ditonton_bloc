@@ -36,7 +36,7 @@ export 'domain/usecases/search_movies.dart';
 
 // cubit
 export 'presentation/cubit/search_cubit.dart';
-export 'presentation/cubit/movie_list_cubit.dart';
+export 'presentation/cubit/movies_cubit.dart';
 export 'presentation/cubit/movie_detail_cubit.dart';
 export 'presentation/cubit/watchlist_movie_cubit.dart';
 // export 'presentation/cubit/';

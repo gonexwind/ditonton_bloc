@@ -23,7 +23,7 @@ class _HomeMoviePageState extends State<HomeMoviePage>
     _controller = TabController(length: 2, vsync: this);
 
     Future.microtask(
-        () => BlocProvider.of<MovieListCubit>(context, listen: false)
+        () => BlocProvider.of<MoviesCubit>(context, listen: false)
           ..fetchMovies()
           ..fetchPopularMovies()
           ..fetchTopRatedMovies());
@@ -133,7 +133,7 @@ class MovieTabMenu extends StatelessWidget {
             'Now Playing',
             style: kHeading6,
           ),
-          BlocBuilder<MovieListCubit, MovieListState>(
+          BlocBuilder<MoviesCubit, MoviesState>(
             builder: (context, state) {
               if (state is MoviesLoading) {
                 return const Center(
@@ -151,7 +151,7 @@ class MovieTabMenu extends StatelessWidget {
             onTap: () =>
                 Navigator.pushNamed(context, PopularMoviesPage.ROUTE_NAME),
           ),
-          BlocBuilder<MovieListCubit, MovieListState>(
+          BlocBuilder<MoviesCubit, MoviesState>(
             builder: (context, state) {
               if (state is MoviesLoading) {
                 return const Center(
@@ -169,7 +169,7 @@ class MovieTabMenu extends StatelessWidget {
             onTap: () =>
                 Navigator.pushNamed(context, TopRatedMoviesPage.ROUTE_NAME),
           ),
-          BlocBuilder<MovieListCubit, MovieListState>(
+          BlocBuilder<MoviesCubit, MoviesState>(
             builder: (context, state) {
               if (state is MoviesLoading) {
                 return const Center(
