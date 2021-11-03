@@ -49,6 +49,7 @@ export 'domain/usecases/save_watchlist_tv_series.dart';
 export 'domain/usecases/search_tv_series.dart';
 
 // bloc
+export 'presentation/cubit/tv_series_cubit.dart';
 
 // pages
 export 'presentation/pages/airing_tv_series_page.dart';
@@ -61,7 +62,6 @@ export 'presentation/provider/airing_tv_series_notifier.dart';
 export 'presentation/provider/popular_tv_series_notifier.dart';
 export 'presentation/provider/top_rated_tv_series_notifier.dart';
 export 'presentation/provider/tv_series_detail_notifier.dart';
-export 'presentation/provider/tv_series_list_notifier.dart';
 export 'presentation/provider/tv_series_search_notifier.dart';
 export 'presentation/provider/watchlist_tv_series_notifier.dart';
 

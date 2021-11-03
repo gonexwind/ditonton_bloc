@@ -30,7 +30,7 @@ void init() {
     ),
   );
   locator.registerFactory(
-    () => TVSeriesListNotifier(
+    () => TVSeriesCubit(
       getAiringTodayTVSeries: locator(),
       getPopularTVSeries: locator(),
       getTopRatedTVSeries: locator(),

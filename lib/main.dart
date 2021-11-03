@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (_) => di.locator<WatchlistMovieCubit>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TVSeriesListNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<TVSeriesCubit>(),
         ),
         ChangeNotifierProvider(
           create: (_) => di.locator<TVSeriesDetailNotifier>(),

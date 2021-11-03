@@ -20,15 +20,15 @@ class TVSeriesError extends TVSeriesState {
   List<Object> get props => [message];
 }
 
-class TvSeriesLoaded extends TVSeriesState {
-  final List<TV> onAirSeries;
-  final List<TV> popularSeries;
-  final List<TV> topRatedSeries;
+class TVSeriesLoaded extends TVSeriesState {
+  final List<TV> airingTodayTVSeries;
+  final List<TV> popularTVSeries;
+  final List<TV> topRatedTVSeries;
 
-  const TvSeriesLoaded(this.onAirSeries, this.popularSeries, this.topRatedSeries);
+  const TVSeriesLoaded(this.airingTodayTVSeries, this.popularTVSeries, this.topRatedTVSeries);
 
   @override
-  List<Object> get props => [onAirSeries, popularSeries, topRatedSeries];
+  List<Object> get props => [airingTodayTVSeries, popularTVSeries, topRatedTVSeries];
 }
 
 class TVSeriesPopularLoaded extends TVSeriesState {
