@@ -16,10 +16,10 @@ void init() {
     ),
   );
   locator.registerFactory(
-    () => MovieDetailNotifier(
+    () => MovieDetailCubit(
       getMovieDetail: locator(),
       getMovieRecommendations: locator(),
-      getWatchListStatus: locator(),
+      watchListStatus: locator(),
       saveWatchlist: locator(),
       removeWatchlist: locator(),
     ),
