@@ -21,10 +21,10 @@ class WatchlistMovieError extends WatchlistMovieState {
 }
 
 class WatchlistMovieLoaded extends WatchlistMovieState {
-  final List<Movie> dataMovie;
+  final List<Movie> watchlistMovies;
 
-  const WatchlistMovieLoaded(this.dataMovie);
+  const WatchlistMovieLoaded(this.watchlistMovies);
 
   @override
-  List<Object> get props => [dataMovie];
+  List<Object> get props => [watchlistMovies];
 }

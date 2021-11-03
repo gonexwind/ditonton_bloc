@@ -38,6 +38,7 @@ export 'domain/usecases/search_movies.dart';
 export 'presentation/cubit/search_cubit.dart';
 export 'presentation/cubit/movie_list_cubit.dart';
 export 'presentation/cubit/movie_detail_cubit.dart';
+export 'presentation/cubit/watchlist_movie_cubit.dart';
 // export 'presentation/cubit/';
 
 // pages
@@ -48,9 +49,6 @@ export 'presentation/pages/popular_movies_page.dart';
 export 'presentation/pages/search_page.dart';
 export 'presentation/pages/top_rated_movies_page.dart';
 export 'presentation/pages/watchlist_movies_page.dart';
-
-// provider
-export 'presentation/provider/watchlist_movie_notifier.dart';
 
 // widgets
 export 'presentation/widgets/movie_card_list.dart';

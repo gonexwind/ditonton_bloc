@@ -25,7 +25,7 @@ void init() {
     ),
   );
   locator.registerFactory(
-    () => WatchlistMovieNotifier(
+    () => WatchlistMovieCubit(
       getWatchlistMovies: locator(),
     ),
   );
