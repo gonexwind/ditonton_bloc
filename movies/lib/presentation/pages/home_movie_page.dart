@@ -1,4 +1,5 @@
 import 'package:core/core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/movies.dart';
 import 'package:tv_series/tv_series.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -22,8 +23,8 @@ class _HomeMoviePageState extends State<HomeMoviePage>
     _controller = TabController(length: 2, vsync: this);
 
     Future.microtask(
-        () => Provider.of<MovieListNotifier>(context, listen: false)
-          ..fetchNowPlayingMovies()
+        () => BlocProvider.of<MovieListCubit>(context, listen: false)
+          ..fetchMovies()
           ..fetchPopularMovies()
           ..fetchTopRatedMovies());
   }
@@ -90,7 +91,7 @@ class _HomeMoviePageState extends State<HomeMoviePage>
                 ),
                 labelColor: kRichBlack,
                 unselectedLabelColor: Colors.white,
-                tabs:const [
+                tabs: const [
                   Tab(
                     child: Text('Movies'),
                   ),
@@ -132,52 +133,55 @@ class MovieTabMenu extends StatelessWidget {
             'Now Playing',
             style: kHeading6,
           ),
-          Consumer<MovieListNotifier>(builder: (context, data, child) {
-            final state = data.nowPlayingState;
-            if (state == RequestState.Loading) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (state == RequestState.Loaded) {
-              return MovieList(data.nowPlayingMovies);
-            } else {
-              return Text('Failed');
-            }
-          }),
+          BlocBuilder<MovieListCubit, MovieListState>(
+            builder: (context, state) {
+              if (state is MoviesLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state is MoviesLoaded) {
+                return MovieList(state.nowPlaying);
+              } else {
+                return const Text('Failed');
+              }
+            },
+          ),
           BuildSubHeading(
             title: 'Popular',
             onTap: () =>
                 Navigator.pushNamed(context, PopularMoviesPage.ROUTE_NAME),
           ),
-          Consumer<MovieListNotifier>(builder: (context, data, child) {
-            final state = data.popularMoviesState;
-            if (state == RequestState.Loading) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (state == RequestState.Loaded) {
-              return MovieList(data.popularMovies);
-            } else {
-              return Text('Failed');
-            }
-          }),
+          BlocBuilder<MovieListCubit, MovieListState>(
+            builder: (context, state) {
+              if (state is MoviesLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state is MoviesLoaded) {
+                return MovieList(state.popular);
+              } else {
+                return const Text('Failed');
+              }
+            },
+          ),
           BuildSubHeading(
             title: 'Top Rated',
             onTap: () =>
                 Navigator.pushNamed(context, TopRatedMoviesPage.ROUTE_NAME),
           ),
-          Consumer<MovieListNotifier>(builder: (context, data, child) {
-            final state = data.topRatedMoviesState;
-            if (state == RequestState.Loading) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (state == RequestState.Loaded) {
-              return MovieList(data.topRatedMovies);
-            } else {
-              return Text('Failed');
-            }
-          }),
+          BlocBuilder<MovieListCubit, MovieListState>(
+            builder: (context, state) {
+              if (state is MoviesLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state is MoviesLoaded) {
+                return MovieList(state.topRated);
+              } else {
+                return const Text('Failed');
+              }
+            },
+          ),
         ],
       ),
     );
@@ -187,7 +191,7 @@ class MovieTabMenu extends StatelessWidget {
 class MovieList extends StatelessWidget {
   final List<Movie> movies;
 
-  MovieList(this.movies);
+  const MovieList(this.movies);
 
   @override
   Widget build(BuildContext context) {
