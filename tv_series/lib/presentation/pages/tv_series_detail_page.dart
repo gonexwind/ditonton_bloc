@@ -117,14 +117,35 @@ class DetailContent extends StatelessWidget {
                               onPressed: () async {
                                 if (!isAddedWatchlistTVSeries) {
                                   await BlocProvider.of<TVSeriesDetailCubit>(
-                                          context,
-                                          listen: false)
+                                          context)
                                       .addWatchlistTVSeries(tvSeries);
                                 } else {
                                   await BlocProvider.of<TVSeriesDetailCubit>(
-                                          context,
-                                          listen: false)
+                                          context)
                                       .removeFromWatchlistTVSeries(tvSeries);
+                                }
+                                final message =
+                                    BlocProvider.of<TVSeriesDetailCubit>(
+                                            context,
+                                            listen: false)
+                                        .watchlistMessage;
+                                if (message ==
+                                        TVSeriesDetailCubit
+                                            .watchlistAddSuccessMessage ||
+                                    message ==
+                                        TVSeriesDetailCubit
+                                            .watchlistRemoveSuccessMessage) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text(message)));
+                                } else {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        content: Text(message),
+                                      );
+                                    },
+                                  );
                                 }
                               },
                               child: Row(

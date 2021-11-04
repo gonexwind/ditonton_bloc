@@ -5,6 +5,9 @@ import 'package:tv_series/tv_series.dart';
 part 'tv_series_detail_state.dart';
 
 class TVSeriesDetailCubit extends Cubit<TVSeriesDetailState> {
+  static const watchlistAddSuccessMessage = 'Added to Watchlist';
+  static const watchlistRemoveSuccessMessage = 'Removed from Watchlist';
+
   final GetDetailTVSeries getDetailTVSeries;
   final GetWatchListStatusTVSeries getWatchListStatusTVSeries;
   final GetRecommendationTVSeries getRecommendationTVSeries;
@@ -18,6 +21,10 @@ class TVSeriesDetailCubit extends Cubit<TVSeriesDetailState> {
     required this.saveWatchlistTVSeries,
     required this.removeWatchlistTVSeries,
   }) : super(TVSeriesDetailInitial());
+
+  String _watchlistMessage = '';
+
+  String get watchlistMessage => _watchlistMessage;
 
   Future<void> fetchTVSeriesDetail(int id) async {
     emit(TVSeriesDetailLoading());
@@ -43,26 +50,27 @@ class TVSeriesDetailCubit extends Cubit<TVSeriesDetailState> {
   }
 
   Future<void> addWatchlistTVSeries(TVDetail data) async {
-    emit(TVSeriesDetailLoading());
-
     final result = await saveWatchlistTVSeries.execute(data);
 
-    result.fold((failure) {
-      emit(TVSeriesDetailError(failure.message));
-    }, (result) {
-      emit(TVSeriesDetailSuccess(result, true));
-    });
+    result.fold(
+      (failure) async {
+        _watchlistMessage = failure.message;
+      },
+      (result) async {
+        _watchlistMessage = watchlistAddSuccessMessage;
+      },
+    );
   }
 
   Future<void> removeFromWatchlistTVSeries(TVDetail data) async {
-    emit(TVSeriesDetailLoading());
-
     final result = await removeWatchlistTVSeries.execute(data);
-
-    result.fold((failure) {
-      emit(TVSeriesDetailError(failure.message));
-    }, (result) {
-      emit(TVSeriesDetailSuccess(result, false));
-    });
+    result.fold(
+      (failure) async {
+        _watchlistMessage = failure.message;
+      },
+      (result) async {
+        _watchlistMessage = watchlistRemoveSuccessMessage;
+      },
+    );
   }
 }
