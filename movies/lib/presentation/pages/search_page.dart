@@ -124,7 +124,11 @@ class _SearchPageState extends State<SearchPage> {
                   } else if (state is SearchError) {
                     return Expanded(child: Center(child: Text(state.message)));
                   } else {
-                    return Expanded(child: Container());
+                    return Expanded(
+                      child: Center(
+                        child: Text('Ooopss..Movies not found...'),
+                      ),
+                    );
                   }
                 },
               ),
@@ -148,7 +152,9 @@ class _SearchPageState extends State<SearchPage> {
                     );
                   } else {
                     return Expanded(
-                      child: Container(),
+                      child: Center(
+                        child: Text('Ooopss..TV Series not found...'),
+                      ),
                     );
                   }
                 },
