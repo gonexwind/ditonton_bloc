@@ -29,23 +29,14 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (_) => di.locator<TVSeriesCubit>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TVSeriesDetailNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<TVSeriesDetailCubit>(),
         ),
         ChangeNotifierProvider(
           create: (_) => di.locator<TVSeriesSearchNotifier>(),
         ),
         ChangeNotifierProvider(
           create: (_) => di.locator<WatchlistTVSeriesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<AiringTVSeriesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<PopularTVSeriesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TopRatedTVSeriesNotifier>(),
         ),
         BlocProvider(
           create: (_) => di.locator<SearchCubit>(),

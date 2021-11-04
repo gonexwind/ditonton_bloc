@@ -37,7 +37,7 @@ void init() {
     ),
   );
   locator.registerFactory(
-    () => TVSeriesDetailNotifier(
+    () => TVSeriesDetailCubit(
       getDetailTVSeries: locator(),
       getRecommendationTVSeries: locator(),
       getWatchListStatusTVSeries: locator(),
@@ -53,21 +53,6 @@ void init() {
   locator.registerFactory(
     () => WatchlistTVSeriesNotifier(
       getWatchlistTVSeries: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => PopularTVSeriesNotifier(
-      locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => TopRatedTVSeriesNotifier(
-      getTopRatedTVSeries: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => AiringTVSeriesNotifier(
-      locator(),
     ),
   );
   locator.registerFactory(

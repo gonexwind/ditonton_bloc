@@ -1,10 +1,7 @@
-import 'package:core/utils/state_enum.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_series/presentation/cubit/tv_series_cubit.dart';
-import 'package:tv_series/presentation/provider/top_rated_tv_series_notifier.dart';
 import 'package:tv_series/presentation/widgets/tv_series_card_list.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class TopRatedTVSeriesPage extends StatefulWidget {
   static const ROUTE_NAME = '/top-rated-tv-series';
