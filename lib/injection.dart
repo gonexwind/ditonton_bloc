@@ -51,7 +51,7 @@ void init() {
     ),
   );
   locator.registerFactory(
-    () => WatchlistTVSeriesNotifier(
+    () => WatchlistTVSeriesCubit(
       getWatchlistTVSeries: locator(),
     ),
   );

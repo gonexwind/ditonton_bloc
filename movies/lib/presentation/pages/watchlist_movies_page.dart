@@ -1,10 +1,9 @@
 import 'package:core/core.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/movies.dart';
 import 'package:movies/presentation/cubit/watchlist_movie_cubit.dart';
 import 'package:tv_series/tv_series.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class WatchlistMoviesPage extends StatefulWidget {
   static const ROUTE_NAME = '/watchlist-movie';
@@ -18,9 +17,10 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      BlocProvider.of<WatchlistMovieCubit>(context).getWatchListData();
-      Provider.of<WatchlistTVSeriesNotifier>(context, listen: false)
-          .fetchWatchlistTVSeries();
+      BlocProvider.of<WatchlistMovieCubit>(context, listen: false)
+          .getWatchListData();
+      BlocProvider.of<WatchlistTVSeriesCubit>(context, listen: false)
+          .getWatchListData();
     });
   }
 
@@ -74,24 +74,28 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage> {
                         }
                       },
                     ),
-                    Consumer<WatchlistTVSeriesNotifier>(
-                      builder: (context, data, child) {
-                        if (data.watchlistState == RequestState.Loading) {
+                    BlocBuilder<WatchlistTVSeriesCubit, WatchlistTVSeriesState>(
+                      builder: (context, state) {
+                        if (state is WatchlistTVLoading) {
                           return const Center(
                             child: CircularProgressIndicator(),
                           );
-                        } else if (data.watchlistState == RequestState.Loaded) {
+                        } else if (state is WatchlistTVLoaded) {
                           return ListView.builder(
                             itemBuilder: (context, index) {
-                              final tvSeries = data.watchlistTVSeries[index];
+                              final tvSeries = state.watchlistTVSeries[index];
                               return TVSeriesCard(tvSeries);
                             },
-                            itemCount: data.watchlistTVSeries.length,
+                            itemCount: state.watchlistTVSeries.length,
                           );
-                        } else {
+                        } else if (state is WatchlistTVError) {
                           return Center(
                             key: Key('error_message'),
-                            child: Text(data.message),
+                            child: Text(state.message),
+                          );
+                        } else {
+                          return const Center(
+                            child: Text("Failed to get data"),
                           );
                         }
                       },

@@ -52,15 +52,13 @@ export 'domain/usecases/search_tv_series.dart';
 export 'presentation/cubit/tv_series_cubit.dart';
 export 'presentation/cubit/tv_series_detail_cubit.dart';
 export 'presentation/cubit/tv_series_search_cubit.dart';
+export 'presentation/cubit/watchlist_tv_series_cubit.dart';
 
 // pages
 export 'presentation/pages/airing_tv_series_page.dart';
 export 'presentation/pages/popular_tv_series_page.dart';
 export 'presentation/pages/top_rated_tv_series_page.dart';
 export 'presentation/pages/tv_series_detail_page.dart';
-
-// provider
-export 'presentation/provider/watchlist_tv_series_notifier.dart';
 
 // widgets
 export 'presentation/widgets/tv_series_card_list.dart';

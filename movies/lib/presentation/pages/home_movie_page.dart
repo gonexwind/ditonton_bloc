@@ -16,6 +16,7 @@ class _HomeMoviePageState extends State<HomeMoviePage>
     with SingleTickerProviderStateMixin {
   late final TabController _controller;
 
+
   @override
   void initState() {
     super.initState();

@@ -13,7 +13,6 @@ dependencies:
   movies:
     path: ../movies
   http: ^0.13.3
-  provider: ^6.0.0
   equatable: ^2.0.2
   path_provider: ^2.0.2
   flutter_bloc: ^7.2.0
