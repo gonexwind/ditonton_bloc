@@ -64,6 +64,7 @@ class TVSeriesDetailCubit extends Cubit<TVSeriesDetailState> {
 
   Future<void> removeFromWatchlistTVSeries(TVDetail data) async {
     final result = await removeWatchlistTVSeries.execute(data);
+
     result.fold(
       (failure) async {
         _watchlistMessage = failure.message;

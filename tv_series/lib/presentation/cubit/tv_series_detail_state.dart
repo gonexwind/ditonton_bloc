@@ -20,16 +20,6 @@ class TVSeriesDetailError extends TVSeriesDetailState {
   List<Object> get props => [message];
 }
 
-class TVSeriesDetailSuccess extends TVSeriesDetailState {
-  final String message;
-  final bool isAddedtoWatchlistTVSeries;
-
-  const TVSeriesDetailSuccess(this.message, this.isAddedtoWatchlistTVSeries);
-
-  @override
-  List<Object> get props => [message, isAddedtoWatchlistTVSeries];
-}
-
 class TVSeriesDetailLoaded extends TVSeriesDetailState {
   final TVDetail tvSeries;
   final bool isAddedtoWatchlistTVSeries;
