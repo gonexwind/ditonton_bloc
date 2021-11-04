@@ -55,13 +55,18 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage> {
                             child: CircularProgressIndicator(),
                           );
                         } else if (state is WatchlistMovieLoaded) {
-                          return ListView.builder(
-                            itemBuilder: (context, index) {
-                              final movie = state.watchlistMovies[index];
-                              return MovieCard(movie);
-                            },
-                            itemCount: state.watchlistMovies.length,
-                          );
+                          if (state.watchlistMovies.isEmpty) {
+                            return const Center(
+                                child: Text('Watchlist Movies Is Empty'));
+                          } else {
+                            return ListView.builder(
+                              itemBuilder: (context, index) {
+                                final movie = state.watchlistMovies[index];
+                                return MovieCard(movie);
+                              },
+                              itemCount: state.watchlistMovies.length,
+                            );
+                          }
                         } else if (state is WatchlistMovieError) {
                           return Center(
                             key: const Key('error_message'),
@@ -81,13 +86,18 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage> {
                             child: CircularProgressIndicator(),
                           );
                         } else if (state is WatchlistTVLoaded) {
-                          return ListView.builder(
-                            itemBuilder: (context, index) {
-                              final tvSeries = state.watchlistTVSeries[index];
-                              return TVSeriesCard(tvSeries);
-                            },
-                            itemCount: state.watchlistTVSeries.length,
-                          );
+                          if (state.watchlistTVSeries.isEmpty) {
+                            return const Center(
+                                child: Text('Watchlist TV Series Is Empty'));
+                          } else {
+                            return ListView.builder(
+                              itemBuilder: (context, index) {
+                                final tvSeries = state.watchlistTVSeries[index];
+                                return TVSeriesCard(tvSeries);
+                              },
+                              itemCount: state.watchlistTVSeries.length,
+                            );
+                          }
                         } else if (state is WatchlistTVError) {
                           return Center(
                             key: Key('error_message'),

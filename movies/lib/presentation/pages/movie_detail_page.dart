@@ -196,7 +196,7 @@ class DetailContent extends StatelessWidget {
                                   );
                                 } else if (state is MovieDetailError) {
                                   return Text(state.message);
-                                } else if (state is MovieDetailLoading) {
+                                } else if (state is MovieDetailLoaded) {
                                   return Container(
                                     height: 150,
                                     child: ListView.builder(
