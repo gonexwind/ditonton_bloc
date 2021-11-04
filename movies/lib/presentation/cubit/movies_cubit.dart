@@ -18,7 +18,6 @@ class MoviesCubit extends Cubit<MoviesState> {
   Future<void> fetchMovies() async {
     try {
       emit(MoviesLoading());
-
       late List<Movie> nowPlayingMovies;
       late List<Movie> popularMovies;
       late List<Movie> topRatedMovies;

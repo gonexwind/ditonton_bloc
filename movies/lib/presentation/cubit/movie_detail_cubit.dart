@@ -11,6 +11,9 @@ import 'package:movies/domain/usecases/save_watchlist.dart';
 part 'movie_detail_state.dart';
 
 class MovieDetailCubit extends Cubit<MovieDetailState> {
+  static const watchlistAddSuccessMessage = 'Added to Watchlist';
+  static const watchlistRemoveSuccessMessage = 'Removed from Watchlist';
+
   final GetMovieDetail getMovieDetail;
   final GetWatchListStatus watchListStatus;
   final GetMovieRecommendations getMovieRecommendations;
@@ -25,49 +28,56 @@ class MovieDetailCubit extends Cubit<MovieDetailState> {
     required this.getMovieRecommendations,
   }) : super(MovieDetailInitial());
 
+  String _watchlistMessage = '';
+
+  String get watchlistMessage => _watchlistMessage;
+
   Future<void> fetchMovieDetail(int id) async {
     emit(MovieDetailLoading());
 
     final detailData = await getMovieDetail.execute(id);
     final isBookmarked = await watchListStatus.execute(id);
-    // final recommendationResult = await getMovieRecommendations.execute(id);
+    final recommendationResult = await getMovieRecommendations.execute(id);
 
     detailData.fold(
       (failure) {
         emit(MovieDetailError(failure.message));
       },
       (data) {
-        emit(MovieDetailLoaded(data, isBookmarked));
+        recommendationResult.fold(
+          (failure) {
+            emit(MovieDetailError(failure.message));
+          },
+          (recomendations) {
+            emit(MovieDetailLoaded(data, isBookmarked, recomendations));
+          },
+        );
       },
     );
   }
 
   Future<void> saveToWatchlist(MovieDetail movieDetail) async {
-    emit(MovieDetailLoading());
-
     final result = await saveWatchlist.execute(movieDetail);
 
     result.fold(
       (failure) {
-        emit(MovieDetailError(failure.message));
+        _watchlistMessage = failure.message;
       },
       (result) {
-        emit(MovieDetailSuccess(result, true));
+        _watchlistMessage = watchlistAddSuccessMessage;
       },
     );
   }
 
   Future<void> removeFromWatchlist(MovieDetail movieDetail) async {
-    emit(MovieDetailLoading());
-
     final result = await removeWatchlist.execute(movieDetail);
 
     result.fold(
       (failure) {
-        emit(MovieDetailError(failure.message));
+        _watchlistMessage = failure.message;
       },
       (result) {
-        emit(MovieDetailSuccess(result, false));
+        _watchlistMessage = watchlistRemoveSuccessMessage;
       },
     );
   }

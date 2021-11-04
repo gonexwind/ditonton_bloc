@@ -16,16 +16,10 @@ class _HomeMoviePageState extends State<HomeMoviePage>
     with SingleTickerProviderStateMixin {
   late final TabController _controller;
 
-
   @override
   void initState() {
     super.initState();
     _controller = TabController(length: 2, vsync: this);
-
-    Future.microtask(() => BlocProvider.of<MoviesCubit>(context, listen: false)
-      ..fetchMovies()
-      ..fetchPopularMovies()
-      ..fetchTopRatedMovies());
   }
 
   @override
@@ -119,8 +113,27 @@ class _HomeMoviePageState extends State<HomeMoviePage>
   }
 }
 
-class MovieTabMenu extends StatelessWidget {
+class MovieTabMenu extends StatefulWidget {
   const MovieTabMenu({Key? key}) : super(key: key);
+
+  @override
+  State<MovieTabMenu> createState() => _MovieTabMenuState();
+}
+
+class _MovieTabMenuState extends State<MovieTabMenu>
+    with AutomaticKeepAliveClientMixin {
+  @BlendMode.overlay
+  bool get wantKeepAlive => true;
+
+  @override
+  void initState() {
+    super.initState();
+
+    Future.microtask(() => BlocProvider.of<MoviesCubit>(context, listen: false)
+      ..fetchMovies()
+      ..fetchPopularMovies()
+      ..fetchTopRatedMovies());
+  }
 
   @override
   Widget build(BuildContext context) {

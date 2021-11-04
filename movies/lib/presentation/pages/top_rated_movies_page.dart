@@ -13,8 +13,7 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<MoviesCubit>(context, listen: false)
-        .fetchTopRatedMovies();
+    BlocProvider.of<MoviesCubit>(context).getTopRatedMovies;
   }
 
   @override
@@ -39,7 +38,7 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
                 },
                 itemCount: state.topRated.length,
               );
-            } else if (state is MoviesError){
+            } else if (state is MoviesError) {
               return Center(
                 key: const Key('error_message'),
                 child: Text(state.message),

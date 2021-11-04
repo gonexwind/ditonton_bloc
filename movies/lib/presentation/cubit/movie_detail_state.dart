@@ -33,14 +33,14 @@ class MovieDetailError extends MovieDetailState {
 class MovieDetailLoaded extends MovieDetailState {
   final MovieDetail movieData;
   final bool isAddedtoWatchlist;
-  // final List<Movie> movieRecommendations;
+  final List<Movie> movieRecommendations;
 
   const MovieDetailLoaded(
     this.movieData,
     this.isAddedtoWatchlist,
-    // this.movieRecommendations,
+    this.movieRecommendations,
   );
 
   @override
-  List<Object> get props => [movieData, isAddedtoWatchlist];
+  List<Object> get props => [movieData, isAddedtoWatchlist, movieRecommendations];
 }

@@ -13,9 +13,8 @@ class _PopularMoviesPageState extends State<PopularMoviesPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-        BlocProvider.of<MoviesCubit>(context, listen: false)
-            .fetchPopularMovies());
+    Future.microtask(
+        () => BlocProvider.of<MoviesCubit>(context).getPopularMovies);
   }
 
   @override
@@ -40,7 +39,7 @@ class _PopularMoviesPageState extends State<PopularMoviesPage> {
                 },
                 itemCount: state.popular.length,
               );
-            } else if (state is MoviesError){
+            } else if (state is MoviesError) {
               return Center(
                 key: const Key('error_message'),
                 child: Text(state.message),
