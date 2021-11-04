@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:core/core.dart';
 import 'package:movies/movies.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +39,8 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   late SearchCategory _selectedCategory;
+  bool _searchMovies = true;
+  Timer? _debounce;
 
   @override
   void initState() {
@@ -55,6 +59,7 @@ class _SearchPageState extends State<SearchPage> {
             child: DropdownButton<SearchCategory>(
               value: _selectedCategory,
               onChanged: (value) {
+                _searchMovies = !_searchMovies;
                 setState(() => _selectedCategory = value!);
               },
               items: _categories
@@ -76,7 +81,16 @@ class _SearchPageState extends State<SearchPage> {
           children: [
             TextField(
               onChanged: (query) {
-                context.read<SearchCubit>().searchMovieData(query);
+                if (_debounce?.isActive ?? false) _debounce?.cancel();
+                _debounce = Timer(const Duration(milliseconds: 500), () {
+                  if (query.isNotEmpty) {
+                    if (_searchMovies) {
+                      context.read<SearchCubit>().searchMovieData(query);
+                    } else {
+                      context.read<TVSeriesSearchCubit>().searchTvData(query);
+                    }
+                  }
+                });
               },
               decoration: InputDecoration(
                 hintText: 'Search title',
@@ -94,7 +108,7 @@ class _SearchPageState extends State<SearchPage> {
               BlocBuilder<SearchCubit, SearchState>(
                 builder: (context, state) {
                   if (state is SearchLoading) {
-                    return Center(child: CircularProgressIndicator());
+                    return Center(child: const CircularProgressIndicator());
                   } else if (state is SearchHasData) {
                     final result = state.result;
                     return Expanded(
@@ -115,22 +129,21 @@ class _SearchPageState extends State<SearchPage> {
                 },
               ),
             ] else ...[
-              Consumer<TVSeriesSearchNotifier>(
-                builder: (context, data, child) {
-                  if (data.state == RequestState.Loading) {
-                    return Center(
+              BlocBuilder<TVSeriesSearchCubit, TVSeriesSearchState>(
+                builder: (context, state) {
+                  if (state is TVSeriesSearchLoading) {
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
-                  } else if (data.state == RequestState.Loaded) {
-                    final result = data.searchResult;
+                  } else if (state is TVSeriesSearchLoaded) {
                     return Expanded(
                       child: ListView.builder(
                         padding: const EdgeInsets.all(8),
                         itemBuilder: (context, index) {
-                          final tvSeries = data.searchResult[index];
+                          final tvSeries = state.result[index];
                           return TVSeriesCard(tvSeries);
                         },
-                        itemCount: result.length,
+                        itemCount: state.result.length,
                       ),
                     );
                   } else {

@@ -46,7 +46,7 @@ void init() {
     ),
   );
   locator.registerFactory(
-    () => TVSeriesSearchNotifier(
+    () => TVSeriesSearchCubit(
       searchTVSeries: locator(),
     ),
   );
