@@ -3,6 +3,8 @@ library core;
 export 'database/database_helper.dart';
 export 'styles/colors.dart';
 export 'styles/text_styles.dart';
+export 'utils/shared.dart';
+export 'utils/http_ssl_pinning.dart';
 export 'utils/constants.dart';
 export 'utils/exception.dart';
 export 'utils/failure.dart';

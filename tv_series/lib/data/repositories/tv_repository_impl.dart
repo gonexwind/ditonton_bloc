@@ -6,6 +6,7 @@ import 'package:tv_series/tv_series.dart';
 class TVRepositoryImpl implements TVRepository {
   final TVRemoteDataSource tvRemoteDataSource;
   final TVLocalDataSource tvLocalDataSource;
+
   const TVRepositoryImpl({
     required this.tvRemoteDataSource,
     required this.tvLocalDataSource,
@@ -20,6 +21,8 @@ class TVRepositoryImpl implements TVRepository {
       return Left(ServerFailure(''));
     } on SocketException {
       return Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException catch (e) {
+      return Left(CommonFailure('Certificated not valid\n${e.message}'));
     } catch (e) {
       return Left(CommonFailure('${e.toString()}'));
     }
@@ -35,6 +38,8 @@ class TVRepositoryImpl implements TVRepository {
       return Left(ServerFailure(''));
     } on SocketException {
       return Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException catch (e) {
+      return Left(CommonFailure('Certificated not valid\n${e.message}'));
     } catch (e) {
       return Left(CommonFailure('${e.toString()}'));
     }
@@ -49,6 +54,8 @@ class TVRepositoryImpl implements TVRepository {
       return Left(ServerFailure(''));
     } on SocketException {
       return Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException catch (e) {
+      return Left(CommonFailure('Certificated not valid\n${e.message}'));
     } catch (e) {
       return Left(CommonFailure('${e.toString()}'));
     }
@@ -63,6 +70,8 @@ class TVRepositoryImpl implements TVRepository {
       return Left(ServerFailure(''));
     } on SocketException {
       return Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException catch (e) {
+      return Left(CommonFailure('Certificated not valid\n${e.message}'));
     } catch (e) {
       return Left(CommonFailure('${e.toString()}'));
     }
@@ -77,6 +86,8 @@ class TVRepositoryImpl implements TVRepository {
       return Left(ServerFailure(''));
     } on SocketException {
       return Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException catch (e) {
+      return Left(CommonFailure('Certificated not valid\n${e.message}'));
     } catch (e) {
       return Left(CommonFailure('${e.toString()}'));
     }
@@ -91,6 +102,8 @@ class TVRepositoryImpl implements TVRepository {
       return Left(ServerFailure(''));
     } on SocketException {
       return Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException catch (e) {
+      return Left(CommonFailure('Certificated not valid\n${e.message}'));
     } catch (e) {
       return Left(CommonFailure('${e.toString()}'));
     }
@@ -102,13 +115,15 @@ class TVRepositoryImpl implements TVRepository {
     required int seasonNumber,
   }) async {
     try {
-      final result =
-          await tvRemoteDataSource.getEpisodeSeasonTVSeries(id: id, seasonNumber: seasonNumber);
+      final result = await tvRemoteDataSource.getEpisodeSeasonTVSeries(
+          id: id, seasonNumber: seasonNumber);
       return Right(result.map((e) => e.toEntity()).toList());
     } on ServerException {
       return Left(ServerFailure(''));
     } on SocketException {
       return Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException catch (e) {
+      return Left(CommonFailure('Certificated not valid\n${e.message}'));
     } catch (e) {
       return Left(CommonFailure('${e.toString()}'));
     }
@@ -124,6 +139,8 @@ class TVRepositoryImpl implements TVRepository {
       return Left(ServerFailure(''));
     } on SocketException {
       return Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException catch (e) {
+      return Left(CommonFailure('Certificated not valid\n${e.message}'));
     } catch (e) {
       return Left(CommonFailure('${e.toString()}'));
     }
@@ -132,12 +149,15 @@ class TVRepositoryImpl implements TVRepository {
   @override
   Future<Either<Failure, String>> insertWatchlistTVSeries(TVDetail tv) async {
     try {
-      final result = await tvLocalDataSource.insertWatchlist(TVLocalDatabaseModel.fromEntity(tv));
+      final result = await tvLocalDataSource
+          .insertWatchlist(TVLocalDatabaseModel.fromEntity(tv));
       return Right(result);
     } on ServerException {
       return Left(ServerFailure(''));
     } on SocketException {
       return Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException catch (e) {
+      return Left(CommonFailure('Certificated not valid\n${e.message}'));
     } on DatabaseException catch (e) {
       return Left(DatabaseFailure(e.message));
     } catch (e) {
@@ -154,7 +174,8 @@ class TVRepositoryImpl implements TVRepository {
   @override
   Future<Either<Failure, String>> removeWatchlistTVSeries(TVDetail tv) async {
     try {
-      final result = await tvLocalDataSource.removeWatchlist(TVLocalDatabaseModel.fromEntity(tv));
+      final result = await tvLocalDataSource
+          .removeWatchlist(TVLocalDatabaseModel.fromEntity(tv));
       return Right(result);
     } on DatabaseException catch (e) {
       return Left(DatabaseFailure(e.message));
@@ -162,7 +183,4 @@ class TVRepositoryImpl implements TVRepository {
       return Left(CommonFailure('${e.toString()}'));
     }
   }
-
-  ///! END LOCAL DATASOURCE
-
 }

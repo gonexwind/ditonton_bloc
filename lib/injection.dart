@@ -1,3 +1,4 @@
+import 'package:core/core.dart';
 import 'package:core/database/database_helper.dart';
 import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
@@ -137,5 +138,5 @@ void init() {
   locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  locator.registerLazySingleton(() => HttpSSLPinning.client);
 }
