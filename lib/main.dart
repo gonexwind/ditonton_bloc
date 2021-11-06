@@ -1,5 +1,6 @@
 import 'package:core/core.dart';
 import 'package:ditonton/injection.dart' as di;
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +11,7 @@ import 'package:tv_series/tv_series.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await HttpSSLPinning.init();
-
+  await Firebase.initializeApp();
   di.init();
   runApp(MyApp());
 }
