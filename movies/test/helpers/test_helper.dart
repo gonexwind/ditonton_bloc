@@ -16,3 +16,4 @@ import 'package:http/http.dart' as http;
   MockSpec<http.Client>(as: #MockHttpClient)
 ])
 void main() {}
+
