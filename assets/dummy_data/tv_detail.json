@@ -1,0 +1,107 @@
+{
+    "backdrop_path": "/x6jWDL4H9TaBLGEvyej0qKiirBU.jpg",
+    "created_by": [],
+    "episode_run_time": [
+        23
+    ],
+    "first_air_date": "2014-10-10",
+    "genres": [
+        {
+            "id": 16,
+            "name": "Animation"
+        },
+        {
+            "id": 35,
+            "name": "Comedy"
+        },
+        {
+            "id": 18,
+            "name": "Drama"
+        }
+    ],
+    "homepage": "http://www.kimiuso.jp/",
+    "id": 61663,
+    "in_production": false,
+    "languages": [
+        "ja"
+    ],
+    "last_air_date": "2015-03-20",
+    "last_episode_to_air": {
+        "air_date": "2015-03-20",
+        "episode_number": 22,
+        "id": 1029354,
+        "name": "Spring Wind",
+        "overview": "Knowing her time is limited, Kaori undergoes a risky operation, hoping to have the chance to play with Kousei on stage one more time.",
+        "production_code": "",
+        "season_number": 1,
+        "still_path": "/vKyFjSSvWLDFybssKPGOZVjPYLq.jpg",
+        "vote_average": 0,
+        "vote_count": 0
+    },
+    "name": "Your Lie in April",
+    "next_episode_to_air": null,
+    "networks": [
+        {
+            "name": "Fuji TV",
+            "id": 1,
+            "logo_path": "/yS5UJjsSdZXML0YikWTYYHLPKhQ.png",
+            "origin_country": "JP"
+        }
+    ],
+    "number_of_episodes": 22,
+    "number_of_seasons": 1,
+    "origin_country": [
+        "JP"
+    ],
+    "original_language": "ja",
+    "original_name": "四月は君の嘘",
+    "overview": "Kousei Arima was a genius pianist until his mother's sudden death took away his ability to play. Each day was dull for Kousei. But, then he meets a violinist named Kaori Miyazono who has an eccentric playing style. Can the heartfelt sounds of the girl's violin lead the boy to play the piano again?",
+    "popularity": 45.429,
+    "poster_path": "/IGbeFv5Ji4W0x530JcSHiQpamY.jpg",
+    "production_companies": [
+        {
+            "id": 13113,
+            "logo_path": "/xV5tPYKZhP2Ko9dOh5A3FahuKsx.png",
+            "name": "A-1 Pictures",
+            "origin_country": "JP"
+        }
+    ],
+    "production_countries": [
+        {
+            "iso_3166_1": "JP",
+            "name": "Japan"
+        }
+    ],
+    "seasons": [
+        {
+            "air_date": "2015-05-15",
+            "episode_count": 1,
+            "id": 76813,
+            "name": "Specials",
+            "overview": "",
+            "poster_path": "/IGbeFv5Ji4W0x530JcSHiQpamY.jpg",
+            "season_number": 0
+        },
+        {
+            "air_date": "2014-10-10",
+            "episode_count": 22,
+            "id": 63597,
+            "name": "Season 1",
+            "overview": "",
+            "poster_path": "/IGbeFv5Ji4W0x530JcSHiQpamY.jpg",
+            "season_number": 1
+        }
+    ],
+    "spoken_languages": [
+        {
+            "english_name": "Japanese",
+            "iso_639_1": "ja",
+            "name": "日本語"
+        }
+    ],
+    "status": "Ended",
+    "tagline": "",
+    "type": "Scripted",
+    "vote_average": 8.9,
+    "vote_count": 571
+}

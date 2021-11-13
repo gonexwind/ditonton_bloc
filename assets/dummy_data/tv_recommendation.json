@@ -1,0 +1,499 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/dJ8yrSokdTMnhKJw06MllSfCegb.jpg",
+            "genre_ids": [
+                16,
+                35,
+                18
+            ],
+            "id": 83121,
+            "media_type": "tv",
+            "name": "Kaguya-sama: Love is War",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "かぐや様は告らせたい～天才たちの恋愛頭脳戦～",
+            "overview": "Considered a genius due to having the highest grades in the country, Miyuki Shirogane leads the prestigious Shuchiin Academy's student council as its president, working alongside the beautiful and wealthy vice president Kaguya Shinomiya. The two are often regarded as the perfect couple by students despite them not being in any sort of romantic relationship.",
+            "popularity": 85.856,
+            "poster_path": "/5khbC6AuNgnvnoDbjIMKCOhEtIc.jpg",
+            "first_air_date": "2019-01-12",
+            "vote_average": 8.882,
+            "vote_count": 400
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/sOslKAoi1eBZ0MzfunCra0gACZk.jpg",
+            "genre_ids": [
+                16,
+                18,
+                9648
+            ],
+            "id": 39434,
+            "media_type": "tv",
+            "name": "Anohana: The Flower We Saw That Day",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "あの日見た花の名前を僕達はまだ知らない。",
+            "overview": "When Yadomi Jinta was a child, he was a central piece in a group of close friends. In time, however, these childhood friends drifted apart, and when they became high school students, they had long ceased to think of each other as friends.\n\nOne of the friends from that group, Honma Meiko, now has a wish she asks Jinta to fulfil. The problem is, she can't remember what her wish is anymore. As Meiko won't cease to bother Jinta about it, he gives in and decides to try to grant this wish he knows nothing of; for that, however, the help of his other former friends, now all very estranged from himself and from each other, may turn out to be necessary. He hasn't spoken to Anjou Naruko, Matsuyuki Atsumu, Tsurumi Chiriko, or Hisakawa Tetsudou in a long time; as he struggles to grant Meiko's wish and gathers his old friends together in the process, all the old feelings that still exist between them and have long been stashed away are bound to come up again.",
+            "popularity": 29.011,
+            "poster_path": "/1rD1cEbJmmioYl7tHNQ3rd8F2Vz.jpg",
+            "first_air_date": "2011-04-15",
+            "vote_average": 8.6,
+            "vote_count": 222
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/cs7dQALY7HyIJ2p91ZTzTJl2n57.jpg",
+            "genre_ids": [
+                10759,
+                16,
+                35,
+                10765
+            ],
+            "id": 61695,
+            "media_type": "tv",
+            "name": "Beyond the Boundary",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "境界の彼方",
+            "overview": "The dark fantasy follows a high school sophomore named Akihito Kanbara. Although the boy appears human, he is half Youmu and invulnerable to wounds because he can heal quickly. One day, Akihito meets freshman Mirai Kuriyama when it seems she is about to jump from the school rooftop. Mirai is isolated because of her ability to manipulate blood, which is considered heresy among members of the spirit world. Disturbing events begin to unfold after Akihito saves Mirai.",
+            "popularity": 20.634,
+            "poster_path": "/6cmtMbEZAYm3aWzthFRk6048LFi.jpg",
+            "first_air_date": "2013-10-02",
+            "vote_average": 8.585,
+            "vote_count": 207
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/uKtyR5VqjefVgYQ64Hy1ch2BVFo.jpg",
+            "genre_ids": [
+                16,
+                10765,
+                18
+            ],
+            "id": 75214,
+            "media_type": "tv",
+            "name": "Violet Evergarden",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "ヴァイオレット・エヴァーガーデン",
+            "overview": "The Great War finally came to an end after four long years of conflict; fractured in two, the continent of Telesis slowly began to flourish once again. Caught up in the bloodshed was Violet Evergarden, a young girl raised for the sole purpose of decimating enemy lines. Hospitalized and maimed in a bloody skirmish during the War's final leg, she was left with only words from the person she held dearest, but with no understanding of their meaning.\n\nRecovering from her wounds, Violet starts a new life working at CH Postal Services after a falling out with her new intended guardian family. There, she witnesses by pure chance the work of an \"Auto Memory Doll,\" amanuenses that transcribe people's thoughts and feelings into words on paper. Moved by the notion, Violet begins work as an Auto Memory Doll, a trade that will take her on an adventure, one that will reshape the lives of her clients and hopefully lead to self-discovery.",
+            "popularity": 70.134,
+            "poster_path": "/ImvHbM4GsJJykarnOzhtpG6ax6.jpg",
+            "first_air_date": "2018-01-11",
+            "vote_average": 8.8,
+            "vote_count": 455
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/xYedDZLJ3lUpNvoC8hdVpXiz5lJ.jpg",
+            "genre_ids": [
+                16,
+                18,
+                9648
+            ],
+            "id": 61901,
+            "media_type": "tv",
+            "name": "Death Parade",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "デス・パレード",
+            "overview": "There is a place after death that’s neither heaven nor hell. A bar that serves you one chance to win. You cannot leave until the game is over, and when it is, your life may be too. From Studio Madhouse (Death Note, Black Lagoon) comes a thrilling new series where the stakes are high and the rules are simple: your life is on the line.",
+            "popularity": 24.842,
+            "poster_path": "/qeD9wDenN7CPA99FScSErJCvcWb.jpg",
+            "first_air_date": "2015-01-10",
+            "vote_average": 8.29,
+            "vote_count": 248
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/42odI4r2HFgBMFlfchZ6jwUDEOC.jpg",
+            "genre_ids": [
+                16,
+                35,
+                18
+            ],
+            "id": 45807,
+            "media_type": "tv",
+            "name": "Kokoro Connect",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "ココロコネクト",
+            "overview": "Five members of the school culture club—Taichi Yaegashi, Iori Nagase, Himeko Inaba, Yui Kiriyama, and Yoshifumi Aoki—encounter a bizarre phenomenon one day when Aoki and Yui switch personalities without warning. The same begins to happen to the other club members, throwing their daily lives into chaos. At first the five students find some amusement among the confusion, but this connection also exposes the painful scars hidden within their hearts... When their calm lives are shattered, the relationships between the five students also begin to change!",
+            "popularity": 13.49,
+            "poster_path": "/kzPbvHs9qISUPSQUbqnLdaiJh8E.jpg",
+            "first_air_date": "2012-07-08",
+            "vote_average": 6.679,
+            "vote_count": 39
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/82hAXKATyuldbt4PxSNnHHy2BVO.jpg",
+            "genre_ids": [
+                16,
+                35,
+                18
+            ],
+            "id": 42916,
+            "media_type": "tv",
+            "name": "Toradora!",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "とらドラ！",
+            "overview": "Ryūji Takasu is a gentle high school student with a love for housework; but in contrast to his kind nature, he has an intimidating face that often gets him labeled as a delinquent. On the other hand is Taiga Aisaka, a small, doll-like student who is anything but a cute and fragile girl. Equipped with a wooden katana and feisty personality, Taiga is known throughout the school as the \"Palmtop Tiger.\" One day, an embarrassing mistake causes the two students to cross paths. Ryūji discovers that Taiga actually has a sweet side: she has a crush on the popular vice president, Yūsaku Kitamura, who happens to be his best friend. But things only get crazier when Ryūji reveals that he has a crush on Minori Kushieda—Taiga's best friend! Toradora! is a romantic comedy that follows this odd duo as they embark on a quest to help each other with their respective crushes, forming an unlikely alliance in the process.",
+            "popularity": 26.944,
+            "poster_path": "/jgLSYTAgjQgwBqLEw1bgr8vNxeK.jpg",
+            "first_air_date": "2008-10-02",
+            "vote_average": 8.577,
+            "vote_count": 377
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/zHQ2ntgjx2xHMkyXFgI1tjcoHST.jpg",
+            "genre_ids": [
+                16,
+                35,
+                18
+            ],
+            "id": 46041,
+            "media_type": "tv",
+            "name": "My Little Monster",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "となりの怪物くん",
+            "overview": "Mizutani Shizuku finds peace in her studies.  Working hard to stay at the top of the class, alone but focused.  When she is tasked with delivering class materials to Yoshida Haru, her world starts to rapidly expand.  With some new friends and feelings, will she be able to stay focused on her studies?",
+            "popularity": 36.561,
+            "poster_path": "/qmGAYDNuENa94kGV56Oe0Kwm3dX.jpg",
+            "first_air_date": "2012-10-02",
+            "vote_average": 8.639,
+            "vote_count": 259
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/cifs43XOpsUYUgEDzcsU52AvcaP.jpg",
+            "genre_ids": [
+                16,
+                18
+            ],
+            "id": 70880,
+            "media_type": "tv",
+            "name": "Tsukigakirei",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "月がきれい",
+            "overview": "Kotarou Azumi and Akane Mizuno became third year students at junior high school and are classmates for the first time. These two, along with fellow classmates, Chinatsu Nishio and Takumi Hira, relate to their peers through mutual understandings and feelings. As their final year at junior high school progresses, the group overcome their challenges to mature and become aware of changes in themselves.",
+            "popularity": 14.521,
+            "poster_path": "/wWFVlj4TBKjWfcvM5dXVs4gDThl.jpg",
+            "first_air_date": "2017-04-07",
+            "vote_average": 8.338,
+            "vote_count": 65
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/j78ak1zAxwhqcuwcS1aE8dy3sfq.jpg",
+            "genre_ids": [
+                16,
+                35
+            ],
+            "id": 50325,
+            "media_type": "tv",
+            "name": "The Pet Girl of Sakurasou",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "さくら荘のペットな彼女",
+            "overview": "Sorata Kanda, a high school sophomore living in Sakurasou, the den of their academy's problem children, spends his days being dragged around by the strange residents, swearing he's going to escape Sakurasou one day.",
+            "popularity": 28.636,
+            "poster_path": "/6XQ2F5bZLWfAmayKyJtZKxn5Tcl.jpg",
+            "first_air_date": "2012-10-09",
+            "vote_average": 8.244,
+            "vote_count": 41
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/ceFPuGQYuZuHvTbj5icOvxUSPwS.jpg",
+            "genre_ids": [
+                16,
+                10765,
+                10759,
+                35
+            ],
+            "id": 60808,
+            "media_type": "tv",
+            "name": "No Game No Life",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "ノーゲーム･ノーライフ",
+            "overview": "This is a surreal comedy that follows Sora and Shiro, shut-in NEET siblings and the online gamer duo behind the legendary username \"Kuuhaku.\" They view the real world as just another lousy game; however, a strange e-mail challenging them to a chess match changes everything—the brother and sister are plunged into an otherworldly realm where they meet Tet, the God of Games.\n\nThe mysterious god welcomes the two to Disboard, a world where all forms of conflict are settled through high-stake games. This system works thanks to a fundamental rule wherein each party must wager something they deem to be of equal value to the other party's wager. In this strange land where the very idea of humanity is reduced to child’s play, the indifferent genius gamer duo of Sora and Shiro have finally found a real reason to keep playing games: to unite the sixteen races of Disboard, defeat Tet, and become the gods of this new, gaming-is-everything world.",
+            "popularity": 32.413,
+            "poster_path": "/qpKGtHATF326zuC1jh7WCrY7u5g.jpg",
+            "first_air_date": "2014-04-09",
+            "vote_average": 8.552,
+            "vote_count": 401
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/qSgBzXdu6QwVVeqOYOlHolkLRxZ.jpg",
+            "genre_ids": [
+                16,
+                10759,
+                10765,
+                18
+            ],
+            "id": 83095,
+            "media_type": "tv",
+            "name": "The Rising of the Shield Hero",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "盾の勇者の成り上がり",
+            "overview": "Iwatani Naofumi was summoned into a parallel world along with 3 other people to become the world's Heroes. Each of the heroes respectively equipped with their own legendary equipment when summoned, Naofumi received the Legendary Shield as his weapon. Due to Naofumi's lack of charisma and experience he's labeled as the weakest, only to end up betrayed, falsely accused, and robbed by on the third day of adventure. Shunned by everyone from the king to peasants, Naofumi's thoughts were filled with nothing but vengeance and hatred. Thus, his destiny in a parallel World begins...",
+            "popularity": 50.198,
+            "poster_path": "/6cXf5EDwVhsRv8GlBzUTVnWuk8Z.jpg",
+            "first_air_date": "2019-01-09",
+            "vote_average": 8.976,
+            "vote_count": 658
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/5jtc5va1gDiRi9pjnGqgCN1W0hF.jpg",
+            "genre_ids": [
+                16,
+                18,
+                35,
+                10749
+            ],
+            "id": 42821,
+            "media_type": "tv",
+            "name": "Welcome to the N.H.K.",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "NHKにようこそ!",
+            "overview": "Sato’s life – or what’s left of it – is a paranoid mess of conspiracy theories and social anxieties. He’s terrified of the outside world; his apartment is overflowing with the remnants of cheap take-out food; and his retinas have been permanently scarred by a steady diet of internet porn. But maybe it’s not all his fault. After all, the nefarious N-H-K is out there, and they’re determined to turn society’s fringe-dwellers into a brainwashed lot of jobless, hopeless, futureless recluses.\n\nEnter Misaki – a mysterious girl-next-door type who is Sato’s last chance to beat-down his inner demons and venture out into the light of day. She’s ready to help him overcome his crippling phobias, but Sato would rather cower in his existential foxhole and pretend to work on the demo for his virtual sex game.\n\nHe’s afraid to face the world. She’s strangely desperate to fix a total stranger. Maybe together they can be normal",
+            "popularity": 9.067,
+            "poster_path": "/m6OCDukPsKLWGcUktsnd3xtE0vT.jpg",
+            "first_air_date": "2006-07-09",
+            "vote_average": 8.602,
+            "vote_count": 59
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/zlAzK5qjpP77lPGYKDG0j6SfcDA.jpg",
+            "genre_ids": [
+                16,
+                35,
+                18,
+                10765,
+                10759
+            ],
+            "id": 38559,
+            "media_type": "tv",
+            "name": "Level E",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "レベルE",
+            "overview": "Earth has been populated by thousands of aliens from all over the galaxy. While all the other aliens are aware of their presence, it is a secret only from the Earthlings. Baka, the prince of the planet Dogra, crash lands on Earth and loses his memory. He forcibly moves in with Yukitaka Tsutsui, a first year high school student who had just moved out on his own. The normal life he once knew is quickly pulled away as he becomes the target of the prince's torment.",
+            "popularity": 4.966,
+            "poster_path": "/sEpSeVO3S89fR6aq3IOQ5vH2ItL.jpg",
+            "first_air_date": "2011-01-11",
+            "vote_average": 7.913,
+            "vote_count": 40
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/c2sl2dLlyFFeb18pJtOpBD8cidr.jpg",
+            "genre_ids": [
+                16,
+                35,
+                18
+            ],
+            "id": 72517,
+            "media_type": "tv",
+            "name": "Classroom of the Elite",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "ようこそ実力至上主義の教室へ",
+            "overview": "Koudo Ikusei Senior High School is a leading prestigious school with state-of-the-art facilities where nearly 100% of students go on to university or find employment. The students there have the freedom to wear any hairstyle and bring any personal effects they desire. Koudo Ikusei is a paradise-like school, but the truth is that only the most superior of students receive favorable treatment.\n\nAyanokouji Kiyotaka is a student of D-class, which is where the school dumps its \"inferior\" students in order to ridicule them. For a certain reason, Kiyotaka was careless on his entrance examination, and was put in D-class. After meeting Horikita Suzune and Kushida Kikyou, two other students in his class, Kiyotaka’s situation begins to change.",
+            "popularity": 32.408,
+            "poster_path": "/8BtSk9DGIlS24otIB3qCagVCI6W.jpg",
+            "first_air_date": "2017-07-12",
+            "vote_average": 8.72,
+            "vote_count": 361
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/2F0fyYGMjq267M9H7rIymssaGs.jpg",
+            "genre_ids": [
+                10765,
+                10759,
+                16,
+                35,
+                18
+            ],
+            "id": 45952,
+            "media_type": "tv",
+            "name": "Hunter x Hunter",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "ハンター×ハンター",
+            "overview": "Gon Freecss discovers that the father he had always been told was dead was actually alive the whole time. Ging is a famous Hunter: an individual who has proven themself an elite member of humanity. Gon becomes determined to follow in his father's footsteps, pass the rigorous Hunter Examination.",
+            "popularity": 31.743,
+            "poster_path": "/bQ325mb0gvcksV2YbDVIYHi7RNQ.jpg",
+            "first_air_date": "1999-10-16",
+            "vote_average": 9.039,
+            "vote_count": 64
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/jwAUfgwFEzMYUh3lUht8VBB1SU7.jpg",
+            "genre_ids": [
+                16,
+                35,
+                18
+            ],
+            "id": 77721,
+            "media_type": "tv",
+            "name": "Real Girl",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "３Ｄ彼女　リアルガール",
+            "overview": "Tsutsui Hikari (a.k.a \"Tsuttsun\") is a high school student who is content with his virtual life of anime and video games. One day, he gets stuck cleaning the pool with Iroha, a real live girl who is stylish, sassy and known to be easy with boys ... and she aggressively approaches him! Tsuttsun, who has few friends and lives in his own world, finds himself smitten by the confident and wild Iroha ... and his whole world is turned upside down!! It's the awkward and pure love story of a boy who experiences relationship for the first time.",
+            "popularity": 38.374,
+            "poster_path": "/3UmNynM1YXkYylyontGXPHncjOC.jpg",
+            "first_air_date": "2018-04-04",
+            "vote_average": 8.772,
+            "vote_count": 347
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/qXMtrtOnwFfn75mRWlBdPYgP2WG.jpg",
+            "genre_ids": [
+                16,
+                18
+            ],
+            "id": 65447,
+            "media_type": "tv",
+            "name": "Rainbow",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "ＲＡＩＮＢＯＷ 二舎六房の七人",
+            "overview": "About ten years after the Second World War, a group of juvenile offenders are sent to the Shounan Special Reform School, a kind of juvenile detention center, to deal with the atrocities and injustices they experienced in the war.",
+            "popularity": 10.3,
+            "poster_path": "/1habNx0wDHcrZ2nCRs32V2bqdYw.jpg",
+            "first_air_date": "2010-04-06",
+            "vote_average": 6.932,
+            "vote_count": 22
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/yOkNYWCOWLh3HFtUlo3QT1g5pHG.jpg",
+            "genre_ids": [
+                10759,
+                16,
+                35,
+                10765
+            ],
+            "id": 37305,
+            "media_type": "tv",
+            "name": "Soul Eater",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "ソウルイーター",
+            "overview": "At the Death Weapon Meister Academy, three teams must collect the souls of 99 evil humans and one witch.",
+            "popularity": 28.303,
+            "poster_path": "/hI5AhxFTSFabTG7Fvhczyb5ZIh8.jpg",
+            "first_air_date": "2008-04-07",
+            "vote_average": 7.778,
+            "vote_count": 126
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/mWwWhDiQWONiSS4Go12TTjNw0E5.jpg",
+            "genre_ids": [
+                16,
+                35,
+                18
+            ],
+            "id": 68129,
+            "media_type": "tv",
+            "name": "Yuri!!! on Ice",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "ユーリ!!! on ICE",
+            "overview": "Yūri Katsuki carried all of Japan's hopes on his shoulders to win at the Gran Prix Finale ice skating competition, but suffered a crushing defeat. He returns home to Kyushu and half feels like he wants to retire, and half feels like he wants to continue ice skating. Suddenly the five-time consecutive world championship ice skater Victor Nikiforov appears before him with Yuri Plisetsky, a young Russian figure skater who is already defeating his seniors. Victor and both Yuris take up the challenge on an unprecedented Gran Prix series.",
+            "popularity": 21.61,
+            "poster_path": "/oKVFf2uNCLMsovWBxAW14MmhHUm.jpg",
+            "first_air_date": "2016-10-06",
+            "vote_average": 8.899,
+            "vote_count": 437
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/ly0tvRfOp936Zmr6vepusFeo7lp.jpg",
+            "genre_ids": [
+                10759,
+                16,
+                9648,
+                10765,
+                35,
+                18
+            ],
+            "id": 42509,
+            "media_type": "tv",
+            "name": "Steins;Gate",
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "Steins;Gate",
+            "overview": "A group of friends have customized their microwave so that it can send text messages to the past. As they perform different experiments, an organization named SERN who has been doing their own research on time travel tracks them down and now the characters have to find a way to avoid being captured by them.",
+            "popularity": 25.654,
+            "poster_path": "/6iysgZr6Upm5RlAlVFo5f4D9euu.jpg",
+            "first_air_date": "2011-04-06",
+            "vote_average": 8.457,
+            "vote_count": 385
+        }
+    ],
+    "total_pages": 2,
+    "total_results": 40
+}
