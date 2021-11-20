@@ -22,16 +22,37 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         BlocProvider(
-          create: (_) => di.locator<MoviesCubit>(),
+          create: (_) => di.locator<MovieNowPlayingCubit>(),
         ),
         BlocProvider(
           create: (_) => di.locator<MovieDetailCubit>(),
         ),
         BlocProvider(
-          create: (_) => di.locator<WatchlistMovieCubit>(),
+          create: (_) => di.locator<MoviePopularCubit>(),
         ),
         BlocProvider(
-          create: (_) => di.locator<TVSeriesCubit>(),
+          create: (_) => di.locator<MovieRecommendationsCubit>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<MovieTopRatedCubit>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<MovieWatchlistCubit>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<TVSeriesAiringTodayCubit>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<TVSeriesPopularCubit>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<TVSeriesTopRatedCubit>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<TVSeriesEpisodeSeasonCubit>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<TVSeriesRecommendationsCubit>(),
         ),
         BlocProvider(
           create: (_) => di.locator<TVSeriesDetailCubit>(),
@@ -40,7 +61,7 @@ class MyApp extends StatelessWidget {
           create: (_) => di.locator<TVSeriesSearchCubit>(),
         ),
         BlocProvider(
-          create: (_) => di.locator<WatchlistTVSeriesCubit>(),
+          create: (_) => di.locator<TVSeriesWatchlistCubit>(),
         ),
         BlocProvider(
           create: (_) => di.locator<SearchCubit>(),

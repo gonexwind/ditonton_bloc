@@ -2,6 +2,7 @@ part of 'tv_series_airing_today_cubit.dart';
 
 abstract class TVSeriesAiringTodayState extends Equatable {
   const TVSeriesAiringTodayState();
+
   @override
   List<Object> get props => [];
 }
@@ -40,8 +41,8 @@ class TVSeriesAiringTodayLoaded extends TVSeriesAiringTodayState {
 
 class TVSeriesAiringTodayError extends TVSeriesAiringTodayState {
   const TVSeriesAiringTodayError(
-      this.message,
-      );
+    this.message,
+  );
 
   final String message;
 
