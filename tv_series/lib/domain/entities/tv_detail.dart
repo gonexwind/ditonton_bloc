@@ -9,7 +9,7 @@ import 'package:tv_series/domain/entities/tv_season.dart';
 import 'package:tv_series/domain/entities/tv_spoken_language.dart';
 
 class TVDetail extends Equatable {
-  TVDetail({
+  const TVDetail({
     this.backdropPath,
     this.episodeRunTime = const [],
     this.firstAirDate,

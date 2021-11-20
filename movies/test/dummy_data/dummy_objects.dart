@@ -26,6 +26,21 @@ final testMovieList = [testMovie];
 
 final testMovieDetail = MovieDetail(
   adult: false,
+  backdropPath: '/sWvxBXNtCOaGdtpKNLiOqmwb10N.jpg',
+  genres: [Genre(id: 14, name: 'Fantasy'), Genre(id: 28, name: 'Action')],
+  id: 557,
+  originalTitle: 'Spider-Man',
+  overview: 'After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers to become the Amazing superhero known as Spider-Man.',
+  posterPath: '/gSZyYEK5AfZuOFFjnVPUCLvdOD6.jpg',
+  releaseDate: '2002-05-01',
+  runtime: 121,
+  title: 'Spider-Man',
+  voteAverage: 7.2,
+  voteCount: 14360,
+);
+
+final testMovieDetails = MovieDetail(
+  adult: false,
   backdropPath: 'backdropPath',
   genres: [Genre(id: 1, name: 'Action')],
   id: 1,

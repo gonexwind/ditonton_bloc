@@ -1,6 +1,5 @@
 import 'package:core/core.dart';
 import 'package:core/database/database_helper.dart';
-import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 import 'package:movies/movies.dart';
 import 'package:tv_series/tv_series.dart';
@@ -10,37 +9,62 @@ final locator = GetIt.instance;
 void init() {
   // provider
   locator.registerFactory(
-    () => MoviesCubit(
+    () => MovieNowPlayingCubit(
       getNowPlayingMovies: locator(),
-      getPopularMovies: locator(),
-      getTopRatedMovies: locator(),
     ),
   );
   locator.registerFactory(
     () => MovieDetailCubit(
       getMovieDetail: locator(),
-      getMovieRecommendations: locator(),
-      watchListStatus: locator(),
       saveWatchlist: locator(),
       removeWatchlist: locator(),
+      getWatchListStatus: locator(),
     ),
   );
   locator.registerFactory(
-    () => WatchlistMovieCubit(
-      getWatchlistMovies: locator(),
+    () => MoviePopularCubit(
+      getPopularMovies: locator(),
     ),
   );
   locator.registerFactory(
-    () => TVSeriesCubit(
+    () => MovieRecommendationsCubit(
+      getMovieRecommendations: locator(),
+    ),
+  );
+  locator.registerFactory(
+    () => MovieTopRatedCubit(
+      getTopRatedMovies: locator(),
+    ),
+  );
+
+  locator.registerFactory(
+    () => TVSeriesAiringTodayCubit(
       getAiringTodayTVSeries: locator(),
+    ),
+  );
+  locator.registerFactory(
+    () => TVSeriesPopularCubit(
       getPopularTVSeries: locator(),
+    ),
+  );
+  locator.registerFactory(
+    () => TVSeriesTopRatedCubit(
       getTopRatedTVSeries: locator(),
+    ),
+  );
+  locator.registerFactory(
+    () => TVSeriesEpisodeSeasonCubit(
+      getEpisodeSeasonTVSeries: locator(),
+    ),
+  );
+  locator.registerFactory(
+    () => TVSeriesRecommendationsCubit(
+      getRecommendationTVSeries: locator(),
     ),
   );
   locator.registerFactory(
     () => TVSeriesDetailCubit(
       getDetailTVSeries: locator(),
-      getRecommendationTVSeries: locator(),
       getWatchListStatusTVSeries: locator(),
       saveWatchlistTVSeries: locator(),
       removeWatchlistTVSeries: locator(),
@@ -49,11 +73,6 @@ void init() {
   locator.registerFactory(
     () => TVSeriesSearchCubit(
       searchTVSeries: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => WatchlistTVSeriesCubit(
-      getWatchlistTVSeries: locator(),
     ),
   );
   locator.registerFactory(

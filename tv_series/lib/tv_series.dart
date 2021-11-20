@@ -49,10 +49,13 @@ export 'domain/usecases/save_watchlist_tv_series.dart';
 export 'domain/usecases/search_tv_series.dart';
 
 // bloc
-export 'presentation/cubit/tv_series_cubit.dart';
 export 'presentation/cubit/tv_series_detail_cubit.dart';
 export 'presentation/cubit/tv_series_search_cubit.dart';
-export 'presentation/cubit/watchlist_tv_series_cubit.dart';
+export 'presentation/cubit/tv_series_airing_today_cubit.dart';
+export 'presentation/cubit/tv_series_episode_season_cubit.dart';
+export 'presentation/cubit/tv_series_popular_cubit.dart';
+export 'presentation/cubit/tv_series_recommendations_cubit.dart';
+export 'presentation/cubit/tv_series_top_rated_cubit.dart';
 
 // pages
 export 'presentation/pages/airing_tv_series_page.dart';
