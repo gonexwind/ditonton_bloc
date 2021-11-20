@@ -2,11 +2,13 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/movies.dart';
-import 'package:movies/presentation/cubit/watchlist_movie_cubit.dart';
+import 'package:provider/provider.dart';
 import 'package:tv_series/tv_series.dart';
 
 class WatchlistMoviesPage extends StatefulWidget {
   static const ROUTE_NAME = '/watchlist-movie';
+
+  const WatchlistMoviesPage({Key? key}) : super(key: key);
 
   @override
   _WatchlistMoviesPageState createState() => _WatchlistMoviesPageState();
@@ -16,12 +18,13 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() {
-      BlocProvider.of<WatchlistMovieCubit>(context, listen: false)
-          .getWatchListData();
-      BlocProvider.of<WatchlistTVSeriesCubit>(context, listen: false)
-          .getWatchListData();
-    });
+
+    Future.microtask(
+      () {
+        context.read<TVSeriesWatchlistCubit>().get();
+        context.read<MovieWatchlistCubit>().get();
+      },
+    );
   }
 
   @override
@@ -48,67 +51,12 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage> {
               Expanded(
                 child: TabBarView(
                   children: [
-                    BlocBuilder<WatchlistMovieCubit, WatchlistMovieState>(
-                      builder: (context, state) {
-                        if (state is WatchlistMovieLoading) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        } else if (state is WatchlistMovieLoaded) {
-                          if (state.watchlistMovies.isEmpty) {
-                            return const Center(
-                                child: Text('Watchlist Movies Is Empty'));
-                          } else {
-                            return ListView.builder(
-                              itemBuilder: (context, index) {
-                                final movie = state.watchlistMovies[index];
-                                return MovieCard(movie);
-                              },
-                              itemCount: state.watchlistMovies.length,
-                            );
-                          }
-                        } else if (state is WatchlistMovieError) {
-                          return Center(
-                            key: const Key('error_message'),
-                            child: Text(state.message),
-                          );
-                        } else {
-                          return const Center(
-                            child: Text("Failed to get data"),
-                          );
-                        }
-                      },
+                    BlocBuilder<MovieWatchlistCubit, MovieWatchlistState>(
+                      builder: (context, state) => _buildWatchlistMovie(state),
                     ),
-                    BlocBuilder<WatchlistTVSeriesCubit, WatchlistTVSeriesState>(
-                      builder: (context, state) {
-                        if (state is WatchlistTVLoading) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        } else if (state is WatchlistTVLoaded) {
-                          if (state.watchlistTVSeries.isEmpty) {
-                            return const Center(
-                                child: Text('Watchlist TV Series Is Empty'));
-                          } else {
-                            return ListView.builder(
-                              itemBuilder: (context, index) {
-                                final tvSeries = state.watchlistTVSeries[index];
-                                return TVSeriesCard(tvSeries);
-                              },
-                              itemCount: state.watchlistTVSeries.length,
-                            );
-                          }
-                        } else if (state is WatchlistTVError) {
-                          return Center(
-                            key: Key('error_message'),
-                            child: Text(state.message),
-                          );
-                        } else {
-                          return const Center(
-                            child: Text("Failed to get data"),
-                          );
-                        }
-                      },
+                    BlocBuilder<TVSeriesWatchlistCubit, TVSeriesWatchlistState>(
+                      builder: (context, state) =>
+                          _buildWatchlistTVSeries(state),
                     ),
                   ],
                 ),
@@ -118,5 +66,49 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage> {
         ),
       ),
     );
+  }
+
+  Widget _buildWatchlistMovie(MovieWatchlistState state) {
+    if (state is MovieWatchlistLoadingState) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    } else if (state is MovieWatchlistLoadedState) {
+      return ListView.builder(
+        itemBuilder: (context, index) {
+          return MovieCard(state.items[index]);
+        },
+        itemCount: state.items.length,
+      );
+    } else if (state is MovieWatchlistErrorState) {
+      return Center(
+        key: const Key('error_message'),
+        child: Text(state.message),
+      );
+    } else {
+      return const SizedBox();
+    }
+  }
+
+  Widget _buildWatchlistTVSeries(TVSeriesWatchlistState state) {
+    if (state is TVSeriesWatchlistLoadingState) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    } else if (state is TVSeriesWatchlistLoadedState) {
+      return ListView.builder(
+        itemBuilder: (context, index) {
+          return TVSeriesCard(state.items[index]);
+        },
+        itemCount: state.items.length,
+      );
+    } else if (state is TVSeriesWatchlistErrorState) {
+      return Center(
+        key: const Key('error_message'),
+        child: Text(state.message),
+      );
+    } else {
+      return const SizedBox();
+    }
   }
 }

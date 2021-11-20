@@ -56,6 +56,7 @@ export 'presentation/cubit/tv_series_episode_season_cubit.dart';
 export 'presentation/cubit/tv_series_popular_cubit.dart';
 export 'presentation/cubit/tv_series_recommendations_cubit.dart';
 export 'presentation/cubit/tv_series_top_rated_cubit.dart';
+export 'presentation/cubit/tv_series_watchlist_cubit.dart';
 
 // pages
 export 'presentation/pages/airing_tv_series_page.dart';

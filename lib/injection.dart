@@ -36,7 +36,11 @@ void init() {
       getTopRatedMovies: locator(),
     ),
   );
-
+  locator.registerFactory(
+    () => MovieWatchlistCubit(
+      getWatchlistMovies: locator(),
+    ),
+  );
   locator.registerFactory(
     () => TVSeriesAiringTodayCubit(
       getAiringTodayTVSeries: locator(),
@@ -73,6 +77,11 @@ void init() {
   locator.registerFactory(
     () => TVSeriesSearchCubit(
       searchTVSeries: locator(),
+    ),
+  );
+  locator.registerFactory(
+    () => TVSeriesWatchlistCubit(
+      getWatchlistTVSeries: locator(),
     ),
   );
   locator.registerFactory(

@@ -41,6 +41,7 @@ export 'presentation/cubit/movie_now_playing_cubit.dart';
 export 'presentation/cubit/movie_popular_cubit.dart';
 export 'presentation/cubit/movie_recommendations_cubit.dart';
 export 'presentation/cubit/movie_top_rated_cubit.dart';
+export 'presentation/cubit/movie_watchlist_cubit.dart';
 
 // pages
 export 'presentation/pages/about_page.dart';

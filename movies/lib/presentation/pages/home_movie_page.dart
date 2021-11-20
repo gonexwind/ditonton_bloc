@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+
+// import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -9,6 +10,8 @@ import 'package:movies/movies.dart';
 import 'package:tv_series/tv_series.dart';
 
 class HomeMoviePage extends StatefulWidget {
+  const HomeMoviePage({Key? key}) : super(key: key);
+
   @override
   _HomeMoviePageState createState() => _HomeMoviePageState();
 }
@@ -37,15 +40,15 @@ class _HomeMoviePageState extends State<HomeMoviePage>
               accountEmail: Text('ditonton@dicoding.com'),
             ),
             ListTile(
-              leading: Icon(Icons.movie),
-              title: Text('Movies'),
+              leading: const Icon(Icons.movie),
+              title: const Text('Movies'),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              leading: Icon(Icons.save_alt),
-              title: Text('Watchlist'),
+              leading: const Icon(Icons.save_alt),
+              title: const Text('Watchlist'),
               onTap: () {
                 Navigator.pushNamed(context, WatchlistMoviesPage.ROUTE_NAME);
               },
@@ -54,21 +57,21 @@ class _HomeMoviePageState extends State<HomeMoviePage>
               onTap: () {
                 Navigator.pushNamed(context, AboutPage.ROUTE_NAME);
               },
-              leading: Icon(Icons.info_outline),
-              title: Text('About'),
+              leading: const Icon(Icons.info_outline),
+              title: const Text('About'),
             ),
           ],
         ),
       ),
       appBar: AppBar(
-        title: Text('Ditonton'),
+        title: const Text('Ditonton'),
         actions: [
           IconButton(
             onPressed: () {
               // FirebaseCrashlytics.instance.crash();
               Navigator.pushNamed(context, SearchPage.ROUTE_NAME);
             },
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
           )
         ],
       ),
@@ -124,17 +127,15 @@ class MovieTabMenu extends StatefulWidget {
 
 class _MovieTabMenuState extends State<MovieTabMenu>
     with AutomaticKeepAliveClientMixin {
-  @BlendMode.overlay
-  bool get wantKeepAlive => true;
-
   @override
   void initState() {
     super.initState();
 
-    Future.microtask(() => BlocProvider.of<MoviesCubit>(context, listen: false)
-      ..fetchMovies()
-      ..fetchPopularMovies()
-      ..fetchTopRatedMovies());
+    Future.microtask(() {
+      context.read<MovieNowPlayingCubit>().get();
+      context.read<MoviePopularCubit>().get();
+      context.read<MovieTopRatedCubit>().get();
+    });
   }
 
   @override
@@ -147,14 +148,14 @@ class _MovieTabMenuState extends State<MovieTabMenu>
             'Now Playing',
             style: kHeading6,
           ),
-          BlocBuilder<MoviesCubit, MoviesState>(
+          BlocBuilder<MovieNowPlayingCubit, MovieNowPlayingState>(
             builder: (context, state) {
-              if (state is MoviesLoading) {
+              if (state is MovieNowPlayingLoadingState) {
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
-              } else if (state is MoviesLoaded) {
-                return MovieList(state.nowPlaying);
+              } else if (state is MovieNowPlayingLoadedState) {
+                return MovieList(state.items);
               } else {
                 return const Text('Failed');
               }
@@ -165,14 +166,14 @@ class _MovieTabMenuState extends State<MovieTabMenu>
             onTap: () =>
                 Navigator.pushNamed(context, PopularMoviesPage.ROUTE_NAME),
           ),
-          BlocBuilder<MoviesCubit, MoviesState>(
+          BlocBuilder<MoviePopularCubit, MoviePopularState>(
             builder: (context, state) {
-              if (state is MoviesLoading) {
+              if (state is MoviePopularLoadingState) {
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
-              } else if (state is MoviesLoaded) {
-                return MovieList(state.popular);
+              } else if (state is MoviePopularLoadedState) {
+                return MovieList(state.items);
               } else {
                 return const Text('Failed');
               }
@@ -183,14 +184,14 @@ class _MovieTabMenuState extends State<MovieTabMenu>
             onTap: () =>
                 Navigator.pushNamed(context, TopRatedMoviesPage.ROUTE_NAME),
           ),
-          BlocBuilder<MoviesCubit, MoviesState>(
+          BlocBuilder<MovieTopRatedCubit, MovieTopRatedState>(
             builder: (context, state) {
-              if (state is MoviesLoading) {
+              if (state is MovieTopRatedLoadingState) {
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
-              } else if (state is MoviesLoaded) {
-                return MovieList(state.topRated);
+              } else if (state is MovieTopRatedLoadedState) {
+                return MovieList(state.items);
               } else {
                 return const Text('Failed');
               }
@@ -200,16 +201,20 @@ class _MovieTabMenuState extends State<MovieTabMenu>
       ),
     );
   }
+
+  @override
+  @BlendMode.overlay
+  bool get wantKeepAlive => true;
 }
 
 class MovieList extends StatelessWidget {
   final List<Movie> movies;
 
-  const MovieList(this.movies);
+  const MovieList(this.movies, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -226,13 +231,13 @@ class MovieList extends StatelessWidget {
                 );
               },
               child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(16)),
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
                 child: CachedNetworkImage(
                   imageUrl: '$BASE_IMAGE_URL${movie.posterPath}',
-                  placeholder: (context, url) => Center(
+                  placeholder: (context, url) => const Center(
                     child: CircularProgressIndicator(),
                   ),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),
@@ -257,11 +262,11 @@ class _TVSeriesTabMenuState extends State<TVSeriesTabMenu>
   void initState() {
     super.initState();
 
-    Future.microtask(
-        () => BlocProvider.of<TVSeriesCubit>(context, listen: false)
-          ..fetchNowPlayingTVSeries()
-          ..fetchPopularTVSeries()
-          ..fetchTopRatedTVSeries());
+    Future.microtask(() {
+      context.read<TVSeriesAiringTodayCubit>().get();
+      context.read<TVSeriesTopRatedCubit>().get();
+      context.read<TVSeriesPopularCubit>().get();
+    });
   }
 
   @override
@@ -277,14 +282,14 @@ class _TVSeriesTabMenuState extends State<TVSeriesTabMenu>
             onTap: () =>
                 Navigator.pushNamed(context, AiringTVSeriesPage.ROUTE_NAME),
           ),
-          BlocBuilder<TVSeriesCubit, TVSeriesState>(
+          BlocBuilder<TVSeriesAiringTodayCubit, TVSeriesAiringTodayState>(
             builder: (context, state) {
-              if (state is TVSeriesLoading) {
+              if (state is TVSeriesAiringTodayLoading) {
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
-              } else if (state is TVSeriesLoaded) {
-                return TVSeriesList(state.airingTodayTVSeries);
+              } else if (state is TVSeriesAiringTodayLoaded) {
+                return TVSeriesList(state.items);
               } else {
                 return const Text('Failed');
               }
@@ -295,14 +300,14 @@ class _TVSeriesTabMenuState extends State<TVSeriesTabMenu>
             onTap: () =>
                 Navigator.pushNamed(context, PopularTVSeriesPage.ROUTE_NAME),
           ),
-          BlocBuilder<TVSeriesCubit, TVSeriesState>(
+          BlocBuilder<TVSeriesPopularCubit, TVSeriesPopularState>(
             builder: (context, state) {
-              if (state is TVSeriesLoading) {
+              if (state is TVSeriesPopularLoadingState) {
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
-              } else if (state is TVSeriesLoaded) {
-                return TVSeriesList(state.popularTVSeries);
+              } else if (state is TVSeriesPopularLoadedState) {
+                return TVSeriesList(state.items);
               } else {
                 return const Text('Failed');
               }
@@ -313,14 +318,14 @@ class _TVSeriesTabMenuState extends State<TVSeriesTabMenu>
             onTap: () =>
                 Navigator.pushNamed(context, TopRatedTVSeriesPage.ROUTE_NAME),
           ),
-          BlocBuilder<TVSeriesCubit, TVSeriesState>(
+          BlocBuilder<TVSeriesTopRatedCubit, TVSeriesTopRatedState>(
             builder: (context, state) {
-              if (state is TVSeriesLoading) {
+              if (state is TVSeriesTopRatedLoadingState) {
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
-              } else if (state is TVSeriesLoaded) {
-                return TVSeriesList(state.topRatedTVSeries);
+              } else if (state is TVSeriesTopRatedLoadedState) {
+                return TVSeriesList(state.items);
               } else {
                 return const Text('Failed');
               }
@@ -331,6 +336,7 @@ class _TVSeriesTabMenuState extends State<TVSeriesTabMenu>
     );
   }
 
+  @override
   @BlendMode.overlay
   bool get wantKeepAlive => true;
 }
@@ -338,11 +344,11 @@ class _TVSeriesTabMenuState extends State<TVSeriesTabMenu>
 class TVSeriesList extends StatelessWidget {
   final List<TV> items;
 
-  TVSeriesList(this.items);
+  const TVSeriesList(this.items, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -359,13 +365,13 @@ class TVSeriesList extends StatelessWidget {
                 );
               },
               child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(16)),
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
                 child: CachedNetworkImage(
                   imageUrl: '$BASE_IMAGE_URL${tv.posterPath}',
-                  placeholder: (context, url) => Center(
+                  placeholder: (context, url) => const Center(
                     child: CircularProgressIndicator(),
                   ),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),
@@ -401,7 +407,7 @@ class BuildSubHeading extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
-              children: [Text('See More'), Icon(Icons.arrow_forward_ios)],
+              children: const [Text('See More'), Icon(Icons.arrow_forward_ios)],
             ),
           ),
         ),

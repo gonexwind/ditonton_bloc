@@ -16,11 +16,17 @@ class MovieDetailState extends Equatable {
   });
 
   MovieDetailState setMovie(MovieDetail movie) => copyWith(movie: movie);
-  MovieDetailState setAddedToWatchlist(bool value) => copyWith(isAddedToWatchlist: value);
+
+  MovieDetailState setAddedToWatchlist(bool value) =>
+      copyWith(isAddedToWatchlist: value);
+
   MovieDetailState setRequestState(RequestState requestState) =>
       copyWith(requestState: requestState);
+
   MovieDetailState setMessage(String message) => copyWith(message: message);
-  MovieDetailState setMessageWatchlist(String message) => copyWith(messageWatchlist: message);
+
+  MovieDetailState setMessageWatchlist(String message) =>
+      copyWith(messageWatchlist: message);
 
   @override
   List<Object> get props {

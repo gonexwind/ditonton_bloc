@@ -3,7 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/movies.dart';
 
 class TopRatedMoviesPage extends StatefulWidget {
+  // ignore: constant_identifier_names
   static const ROUTE_NAME = '/top-rated-movie';
+
+  const TopRatedMoviesPage({Key? key}) : super(key: key);
 
   @override
   _TopRatedMoviesPageState createState() => _TopRatedMoviesPageState();
@@ -13,7 +16,9 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<MoviesCubit>(context).getTopRatedMovies;
+    Future.microtask(
+      () => context.read<MovieTopRatedCubit>().get(),
+    );
   }
 
   @override
@@ -24,29 +29,24 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<MoviesCubit, MoviesState>(
+        child: BlocBuilder<MovieTopRatedCubit, MovieTopRatedState>(
           builder: (context, state) {
-            if (state is MoviesLoading) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (state is MoviesLoaded) {
+            if (state is MovieTopRatedLoadingState) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (state is MovieTopRatedLoadedState) {
               return ListView.builder(
                 itemBuilder: (context, index) {
-                  final movie = state.topRated[index];
-                  return MovieCard(movie);
+                  return MovieCard(state.items[index]);
                 },
-                itemCount: state.topRated.length,
+                itemCount: state.items.length,
               );
-            } else if (state is MoviesError) {
+            } else if (state is MovieTopRatedErrorState) {
               return Center(
                 key: const Key('error_message'),
                 child: Text(state.message),
               );
             } else {
-              return const Center(
-                child: Text("Failed to get data"),
-              );
+              return const SizedBox();
             }
           },
         ),
