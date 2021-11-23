@@ -12,6 +12,7 @@ import 'tv_series_top_rated_cubit_test.mocks.dart';
 void main() {
   late TVSeriesTopRatedCubit cubit;
   late MockGetTopRatedTVSeries mockGetTopRatedTVSeries;
+
   setUp(() {
     mockGetTopRatedTVSeries = MockGetTopRatedTVSeries();
     cubit = TVSeriesTopRatedCubit(getTopRatedTVSeries: mockGetTopRatedTVSeries);
@@ -43,7 +44,7 @@ void main() {
       );
 
       blocTest<TVSeriesTopRatedCubit, TVSeriesTopRatedState>(
-        'should emitsInOrder [Loading, Error] when unsuccess',
+        'should emitsInOrder [Loading, Error] when unsuccessful',
         build: () {
           when(mockGetTopRatedTVSeries.execute())
               .thenAnswer((_) async => Left(ServerFailure('error')));
