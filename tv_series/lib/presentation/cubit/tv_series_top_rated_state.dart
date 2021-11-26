@@ -49,12 +49,4 @@ class TVSeriesTopRatedLoadedState extends TVSeriesTopRatedState {
 
   @override
   bool get stringify => true;
-
-  TVSeriesTopRatedLoadedState copyWith({
-    List<TV>? items,
-  }) {
-    return TVSeriesTopRatedLoadedState(
-      items: items ?? this.items,
-    );
-  }
 }

@@ -50,9 +50,7 @@ class TVSeriesEpisodeSeasonLoadedState extends TVSeriesEpisodeSeasonState {
   @override
   bool get stringify => true;
 
-  TVSeriesEpisodeSeasonLoadedState copyWith({
-    List<Episode>? items,
-  }) {
+  TVSeriesEpisodeSeasonLoadedState copyWith({List<Episode>? items}) {
     return TVSeriesEpisodeSeasonLoadedState(
       items: items ?? this.items,
     );

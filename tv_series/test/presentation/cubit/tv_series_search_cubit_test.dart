@@ -6,7 +6,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:tv_series/tv_series.dart';
 import '../../dummy_data/dummy_objects.dart';
-import 'tv_series_search_cubit.mocks.dart';
+import 'tv_series_search_cubit_test.mocks.dart';
 
 @GenerateMocks([SearchTVSeries])
 void main() {

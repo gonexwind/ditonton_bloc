@@ -51,12 +51,4 @@ class TVSeriesAiringTodayError extends TVSeriesAiringTodayState {
 
   @override
   bool get stringify => true;
-
-  TVSeriesAiringTodayError copyWith({
-    String? message,
-  }) {
-    return TVSeriesAiringTodayError(
-      message ?? this.message,
-    );
-  }
 }

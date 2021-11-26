@@ -49,12 +49,4 @@ class TVSeriesRecommendationsLoadedState extends TVSeriesRecommendationsState {
 
   @override
   bool get stringify => true;
-
-  TVSeriesRecommendationsLoadedState copyWith({
-    List<TV>? items,
-  }) {
-    return TVSeriesRecommendationsLoadedState(
-      items: items ?? this.items,
-    );
-  }
 }

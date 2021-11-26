@@ -49,12 +49,4 @@ class TVSeriesWatchlistLoadedState extends TVSeriesWatchlistState {
 
   @override
   bool get stringify => true;
-
-  TVSeriesWatchlistLoadedState copyWith({
-    List<TV>? items,
-  }) {
-    return TVSeriesWatchlistLoadedState(
-      items: items ?? this.items,
-    );
-  }
 }
