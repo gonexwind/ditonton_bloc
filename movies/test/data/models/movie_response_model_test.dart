@@ -22,12 +22,12 @@ void main() {
     voteCount: 1,
   );
   final tMovieResponseModel =
-  MovieResponse(movieList: <MovieModel>[tMovieModel]);
+      MovieResponse(movieList: <MovieModel>[tMovieModel]);
   group('fromJson', () {
     test('should return a valid model from JSON', () async {
       // arrange
       final Map<String, dynamic> jsonMap =
-      json.decode(readJson('dummy_data/now_playing.json'));
+          json.decode(readJson('dummy_data/now_playing.json'));
       // act
       final result = MovieResponse.fromJson(jsonMap);
       // assert
@@ -38,10 +38,8 @@ void main() {
   group('toJson', () {
     test('should return a JSON map containing proper data', () async {
       // arrange
-
-      // act
       final result = tMovieResponseModel.toJson();
-      // assert
+      // act
       final expectedJsonMap = {
         "results": [
           {
@@ -61,6 +59,7 @@ void main() {
           }
         ],
       };
+      // assert
       expect(result, expectedJsonMap);
     });
   });
