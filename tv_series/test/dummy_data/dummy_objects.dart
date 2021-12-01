@@ -5,6 +5,22 @@ import 'package:tv_series/tv_series.dart';
 
 import '../json_reader.dart';
 
+const tTV = TV(
+  backdropPath: 'backdropPath',
+  firstAirDate: '2010-06-08',
+  genreIds: [1],
+  id: 1,
+  name: 'name',
+  originCountry: ['US'],
+  originalLanguage: 'originalLanguage',
+  originalName: 'originalName',
+  overview: 'overview',
+  popularity: 8.0,
+  posterPath: 'posterPath',
+  voteAverage: 6.0,
+  voteCount: 2,
+);
+
 final testMovie = Movie(
   adult: false,
   backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
