@@ -2,24 +2,42 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tv_series/tv_series.dart';
 
 void main() {
-  var tCreatedByModel = CreatedByModel(
-    id: 19303,
-    creditId: "52532e3219c29579400013ab",
-    name: "Kevin Smith",
+  var tCreatedByModelJson = {
+    "id": 1,
+    "credit_id": "creditId",
+    "name": "name",
+    "gender": 2,
+    "profile_path": "profilePath",
+  };
+
+  const tCreatedByModel = CreatedByModel(
+    id: 1,
+    creditId: "creditId",
+    name: "name",
     gender: 2,
-    profilePath: "/uxDQ0NTZMnOuAaPa0tQzMFV9dx4.jpg",
+    profilePath: "profilePath",
   );
 
   const tCreatedBy = CreatedBy(
-    id: 19303,
-    creditId: "52532e3219c29579400013ab",
-    name: "Kevin Smith",
+    id: 1,
+    creditId: "creditId",
+    name: "name",
     gender: 2,
-    profilePath: "/uxDQ0NTZMnOuAaPa0tQzMFV9dx4.jpg",
+    profilePath: "profilePath",
   );
 
   test('should be a subclass of CreatedBy entity', () async {
     final result = tCreatedByModel.toEntity();
     expect(result, tCreatedBy);
+  });
+
+  test('should return CreatedByModel object from json', () {
+    final result = CreatedByModel.fromJson(tCreatedByModelJson);
+    expect(result, tCreatedByModel);
+  });
+
+  test('should return json object from CreatedByModel', () {
+    final result = tCreatedByModel.toJson();
+    expect(result, tCreatedByModelJson);
   });
 }

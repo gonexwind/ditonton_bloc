@@ -9,7 +9,7 @@ part 'tv_createdby_model.g.dart';
 @immutable
 @JsonSerializable(fieldRename: FieldRename.snake)
 class CreatedByModel extends Equatable {
-  CreatedByModel({
+  const CreatedByModel({
     this.id,
     this.creditId,
     this.name,
@@ -23,7 +23,9 @@ class CreatedByModel extends Equatable {
   final int? gender;
   final String? profilePath;
 
-  factory CreatedByModel.fromJson(Map<String, dynamic> json) => _$CreatedByModelFromJson(json);
+  factory CreatedByModel.fromJson(Map<String, dynamic> json) =>
+      _$CreatedByModelFromJson(json);
+
   Map<String, dynamic> toJson() => _$CreatedByModelToJson(this);
 
   CreatedBy toEntity() {
